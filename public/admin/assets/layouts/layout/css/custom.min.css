@@ -1,0 +1,23 @@
+/*custom css by soft trade*/
+.mt-10{margin-top: 10px;}
+.mt-15{margin-top: 15px;}
+.mt-20{margin-top: 20px;}
+
+.mb-10{margin-bottom: 10px;}
+.mb-15{margin-bottom: 15px;}
+.mb-20{margin-bottom: 20px;}
+
+.w-100{width: 100%;}
+
+.logo-default{
+    margin-top: 10px !important;
+    max-height: 28px;
+}
+.sample_table{}
+.table thead th, .table tbody td{
+    text-align: center;
+    vertical-align: middle !important;
+}
+.table tbody td{
+    max-width: 130px;
+}
