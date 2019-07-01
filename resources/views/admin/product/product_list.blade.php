@@ -42,18 +42,18 @@ session_start();
                                         <span class="caption-subject bold uppercase">Product List</span>
                                     </div>
                                     <div class="tools"><?php
-echo "Today is " . date("Y/m/d") . "<br>";
+			echo "Today is " . date("Y/m/d") . "<br>";
 
-?>
+			?>
 
-									<?php 
-			     $shipping_id=Session::get('user_id');
-				 
-				// print_r($shipping_id);
-				 
-				 ?>							
- </div>
-                                </div>
+												<?php 
+							 $shipping_id=Session::get('user_id');
+							 
+							// print_r($shipping_id);
+							 
+							 ?>							
+			 </div>
+											</div>
 								
 								<hr/>
                                <h3 class="text-center text-success">{{Session::get('message')}}</h3>
@@ -147,9 +147,7 @@ echo "Today is " . date("Y/m/d") . "<br>";
 												  @else
                                     <b style="color:red"> May 26, 2019 10:38:22 GMT</b>
                                       @endif -->
-												<tr'<?php if($_SESSION['days']>=6)
-													
-												?>'>
+												<tr>
 												   <td>{{$product->id}} </td>
 												   <td>{{$product->factory_name}}</td>
 												   <td>{{$product->company_name}}</td>

@@ -282,22 +282,26 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" value="{{$productById->factory_name}}" name="factory_name" id="factory_name">
-                                                        <label for="factory_name">Factory Name</label>
+                                                        <input type="hidden" value="{{$productById->id}}" class="form-control" name="productId">
+														<label for="factory_name">Factory Name</label>
                                                         <span class="help-block">Please enter factory name</span>
                                                     </div>
                                                 </div>
 												 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" value="{{$productById->company_name}}" name="factory_name" id="company_name">
-                                                        <label for="factory_name">Company Name</label>
-                                                        <span class="help-block">Please enter company name</span>
-                                                    </div>
+																 <select class="form-control" name="company_name">
+											<option>Select Company Name</option>
+											@foreach($users as $user)
+											<option value="{{$user->company_name}}">{{$user->company_name}}</option>
+										   @endforeach
+										</select>
+															</div>
                                                 </div>
 
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
 														<input type="text" class="form-control" name="bday_tfd" value="{{$productById->bday_tfd}}"  id="TFD">
-                                                         <input type="hidden" value="{{$productById->id}}" class="form-control" name="productId">
+                                                         
 														<label for="TFD">TFD</label>
                                                         <span class="help-block">Please enter TFD</span>
                                                     </div>
@@ -385,7 +389,7 @@
                                                                     <span class="btn red btn-outline btn-file">
                                                                         <span class="fileinput-new"> Select image </span>
                                                                         <span class="fileinput-exists"> Change </span>
-                                                                        <input type="file" name="image" accept="image/*"> </span>
+                                                                        <input type="file" name="image" accept="image/*" required> </span>
                                                                     <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
                                                                 </div>
                                                             </div>

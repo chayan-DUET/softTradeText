@@ -82,10 +82,12 @@ class ProductController extends Controller
 		
 	}
 	public function editProduct($id){
+		 $users = Auth::User()->where('status', 1)->get();
 		 $productById= Product::where('id',$id)->first();
+		
 		 $steps=explode(",", $productById->steps);
 		 
-          return view('admin.product.edit_Product',['productById'=>$productById,'steps'=>$steps]);          
+          return view('admin.product.edit_Product',['productById'=>$productById,'steps'=>$steps,'users'=>$users]);          
 		 //return view('product.editProduct',['productById'=>$productById,'steps'=>$steps]);
 		//return view('product.editProduct');
 	}
@@ -106,6 +108,9 @@ class ProductController extends Controller
        // $client->productLongDiscription = $request->productLongDiscription;
         // $product->productImage=$this->imageUrl;
         $product->image = $imageUrl;
+		
+		
+
         $product->color = $request->color;
 		$product->quantity = $request->quantity;
 		$product->remark = $request->remark;
