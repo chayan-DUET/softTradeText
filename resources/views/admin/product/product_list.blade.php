@@ -134,9 +134,7 @@ session_start();
                                                     </a>
                                                 </td> 
                                             </tr>  
-											 <?php
-													  $clr=0;
-													   $colors = array('blue','green','purple','orange','red');?>
+											 
 											 @foreach($products as $product)
 											 		  <?php
 													 $clr++;
