@@ -134,20 +134,33 @@ session_start();
                                                     </a>
                                                 </td> 
                                             </tr>  
+											 <?php
+													  $clr=0;
+													   $colors = array('blue','green','purple','orange','red');?>
 											 @foreach($products as $product)
 											 		  <?php
+													 $clr++;
 												  $datetime1 = strtotime(date("Y/m/d"));
 						$datetime2 = strtotime($product['bday_tfd']);
 
 							$secs =$datetime1-$datetime2;// == <seconds between the two times>
 							$days = $secs / 86400;
+							echo $days;
 												  ?>
 												<!--  @if($days<=100)
 													  <b style="color:green"> May 26, 2019 10:38:22 GMT</b>
 												  @else
                                     <b style="color:red"> May 26, 2019 10:38:22 GMT</b>
                                       @endif -->
-												<tr style="background-color: red;">
+												<tr    <? @if($days <=6 && $days >=1)  style="background-color: blue;";
+												} @elseif($days <=20 && $days >=7)   style="background-color: red;"; 
+												  @elseif($days <=50 && $days >=21)  style="background-color: green;"; 
+												  @elseif($days <=150 && $days >=51)  style="background-color:Olive ;"; 
+												   @else  style="background-color: lightblue;";
+												   @endif
+												     ?>
+								 
+												>
 												   <td>{{$product->id}} </td>
 												   <td>{{$product->factory_name}}</td>
 												   <td>{{$product->company_name}}</td>
@@ -175,11 +188,11 @@ session_start();
 							//echo $days;
 												  ?>
 												  @if($days<=6)
-													  <b style="color:red"> {{$product->bday_dd}}</b>
+													  <b style="color:black"> {{$product->bday_dd}}</b>
 												  @elseif($days<=15)
-													  <b style="color:lightblue"> {{$product->bday_dd}}</b>
+													  <b style="color:black"> {{$product->bday_dd}}</b>
 												  @elseif($days<=30)
-													  <b style="color:green"> {{$product->bday_dd}}</b>
+													  <b style="color:black"> {{$product->bday_dd}}</b>
 												  @else
                                     <b style="color:orange">{{$product->bday_dd}}</b>
                                       @endif
