@@ -147,7 +147,7 @@ session_start();
 												  @else
                                     <b style="color:red"> May 26, 2019 10:38:22 GMT</b>
                                       @endif -->
-												<tr>
+												<tr style="background-color: red;">
 												   <td>{{$product->id}} </td>
 												   <td>{{$product->factory_name}}</td>
 												   <td>{{$product->company_name}}</td>
@@ -176,12 +176,10 @@ session_start();
 												  ?>
 												  @if($days<=6)
 													  <b style="color:red"> {{$product->bday_dd}}</b>
-												  @elseif($days<=10)
-													  <b style="color:springgreen"> {{$product->bday_dd}}</b>
-												  @elseif($days<=50)
+												  @elseif($days<=15)
+													  <b style="color:lightblue"> {{$product->bday_dd}}</b>
+												  @elseif($days<=30)
 													  <b style="color:green"> {{$product->bday_dd}}</b>
-													   @elseif($days<=100)
-													  <b style="color:red"> {{$product->bday_dd}}</b>
 												  @else
                                     <b style="color:orange">{{$product->bday_dd}}</b>
                                       @endif
