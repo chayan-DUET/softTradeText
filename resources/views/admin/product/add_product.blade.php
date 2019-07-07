@@ -100,6 +100,14 @@
                                                         <span class="help-block">Please enter Color</span>
                                                     </div>
                                                 </div>
+												///
+											<div class="col-md-4">
+                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                <input type="text" id="demo" class="form-control" name="company_no" rows="3" value="company_no" readonly>
+                                                                <label for="Description">company_no</label>
+                                                            </div>
+                                                        </div>
+														////
                                             </div>
 
                                             <div class="row">
@@ -161,6 +169,7 @@
                                             </div>
 
                                             <br><br>
+											
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <h4 class="font-green mt-20 mb-20"><b>Select Steps</b></h4>  
@@ -271,4 +280,16 @@
                 <!-- END CONTENT BODY -->
             </div>
             <!-- END CONTENT -->
+			<script>
+
+var number = 0;
+var digits = '';
+
+for (i = 0; i < 3; i++) {
+    number = Math.floor(Math.random() * 10);
+    digits = digits + number.toString();
+}
+document.getElementById("demo").value = digits;
+</script>
+
 				@endsection

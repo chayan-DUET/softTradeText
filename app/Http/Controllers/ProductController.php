@@ -65,6 +65,7 @@ class ProductController extends Controller
         
         $product->image = $imageUrl;
         $product->color = $request->color;
+		$product->company_no = $request->company_no;
 		$product->quantity = $request->quantity;
 		$product->remark = $request->remark;
 		$product->factory_name = $request->factory_name;

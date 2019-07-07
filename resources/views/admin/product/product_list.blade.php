@@ -64,6 +64,7 @@ session_start();
                                                 <th> Sl. </th>
                                                 <th> Factory </th>
 												<th> Company </th>
+												<th>company_no</th>
                                                 <th> TDF </th>
                                                 <th> Cate. </th>
                                                 <th> Style </th>
@@ -83,7 +84,8 @@ session_start();
                                             <tr>  
                                                 <td>01</td>   
                                                 <td>ABC Ltd.</td> 
-                                                 <td>ABC com.</td>  												
+                                                 <td>ABC com.</td>  
+											     <td>888</td>  
                                                 <td>01.06.2019</td>   
                                                 <td>Women</td>   
                                                 <td>Charlie</td>   
@@ -111,6 +113,7 @@ session_start();
                                                 <td>02</td>   
                                                 <td>Ananta Ltd.</td>
 											     <td>ABC com.</td>
+												  <td>884</td> 
                                                 <td>01.06.2019</td>   
                                                 <td>Women</td>   
                                                 <td>Charlie</td>   
@@ -143,25 +146,27 @@ session_start();
 
 							$secs =$datetime1-$datetime2;// == <seconds between the two times>
 							$days = $secs / 86400;
-							echo $days;
+							//echo $days;
+							
 												  ?>
 												<!--  @if($days<=100)
 													  <b style="color:green"> May 26, 2019 10:38:22 GMT</b>
 												  @else
                                     <b style="color:red"> May 26, 2019 10:38:22 GMT</b>
                                       @endif -->
-												<tr    <? @if($days <=6 && $days >=1)  style="background-color: blue;";
+												<tr     @if($days <=6 && $days >=1)  style="background-color: blue;";
 												} @elseif($days <=20 && $days >=7)   style="background-color:   #cc0000;"; 
 												  @elseif($days <=50 && $days >=21)  style="background-color: seagreen;"; 
 												  @elseif($days <=150 && $days >=51)  style="background-color:Olive ;"; 
 												   @else  style="background-color: lightblue;";
 												   @endif
-												     ?>
+												     
 								 
-												>
+											>
 												   <td>{{$product->id}} </td>
 												   <td>{{$product->factory_name}}</td>
 												   <td>{{$product->company_name}}</td>
+												   <td>{{$product->company_no}}</td>
 												  <td>{{$product->bday_tfd}} </td>
 												  <td>{{$product->category==0?'boys':'girl'}}</td>
 												  <td>{{$product->style}}</td>
