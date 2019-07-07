@@ -154,8 +154,8 @@ session_start();
 												  @else
                                     <b style="color:red"> May 26, 2019 10:38:22 GMT</b>
                                       @endif -->
-												<tr     @if($days <=6 && $days >=1)  style="background-color: blue;";
-												} @elseif($days <=20 && $days >=7)   style="background-color:   #cc0000;"; 
+												<tr     @if($days <=7 && $days >=1)  style="background-color: blue;";
+												} @elseif($days <=20 && $days >=8)   style="background-color:   #cc0000;"; 
 												  @elseif($days <=50 && $days >=21)  style="background-color: seagreen;"; 
 												  @elseif($days <=150 && $days >=51)  style="background-color:Olive ;"; 
 												   @else  style="background-color: lightblue;";
