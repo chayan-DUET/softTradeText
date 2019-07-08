@@ -100,14 +100,14 @@
                                                         <span class="help-block">Please enter Color</span>
                                                     </div>
                                                 </div>
-												///
+												
 											<div class="col-md-4">
                                                             <div class="form-group form-md-line-input form-md-floating-label">
                                                                 <input type="text" id="demo" class="form-control" name="company_no" rows="3" value="company_no" readonly>
                                                                 <label for="Description">company_no</label>
                                                             </div>
                                                         </div>
-														////
+														
                                             </div>
 
                                             <div class="row">

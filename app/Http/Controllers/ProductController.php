@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\EditProduct;
 use App\Notifications\AddProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
@@ -52,7 +53,7 @@ class ProductController extends Controller
 		  // return redirect('/admin/product/product_list')->with('message', 'product update successfully');
 		  // return redirect('/home')->with('message', 'product info save successfully');
 		    
-		   return redirect('/show-product')->with('message', 'product info save successfully');
+		   return redirect('/show-product')->with('message', 'order info save successfully');
     }
 		 protected function saveProductInfo($request, $imageUrl) {
         $product = new Product();
@@ -119,13 +120,17 @@ class ProductController extends Controller
 		$product->company_name = $request->company_name;
 		$product->steps = implode(",", $request->steps);
 		$product->bday_dd = $request->bday_dd;
-        $product->save();
+        //$product->save();
+		//////
+		 if($product->save()){
+            $user = User::all();
+            Notification::send($user , new EditProduct($product));
 		//return redirect('/admin/product/product_list')->with('message', 'product update successfully');
-		return redirect('/show-product')->with('message', 'product update successfully');
+		return redirect('/show-product')->with('message', 'ordere update successfully');
         //echo '<pre>';
 //         print_r($productImage);
        // echo $imageUrl;
-        // exit();
+		 }  // exit();
     }
 
     public function imageExitStatus($request) {
@@ -151,7 +156,7 @@ class ProductController extends Controller
         $product= Product::find($id);
         $product->delete();
 		//return view('product.Show',['products'=>$product]);
-        return redirect('/show-product')->with('message', 'manufacture info delete successfully');
+        return redirect('/show-product')->with('message', 'order info delete successfully');
     
 	}
 	public function add_pro(){

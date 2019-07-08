@@ -77,8 +77,8 @@
                                                     <div class="form-group form-md-line-input form-md-floating-label has-info">
                                                         <select class="form-control edited" id="category" name="type">
                                                             <option value="" selected>Select Publication Type</option>
-                                                            <option value="0">Publish</option>
-                                                            <option value="1">Unpublish</option>
+                                                            <option value="1">Publish</option>
+                                                            <option value="0">Unpublish</option>
                                                             
                                                         </select>
                                                     </div>
@@ -87,8 +87,8 @@
                                                     <div class="form-group form-md-line-input form-md-floating-label has-info">
                                                         <select class="form-control edited" id="category" name="status">
                                                             <option value="" selected>Select Status</option>
-                                                            <option value="0">Active</option>
-                                                            <option value="1">Deactive</option>
+                                                            <option value="1">Active</option>
+                                                            <option value="0">Deactive</option>
                                                             
                                                         </select>
                                                     </div>

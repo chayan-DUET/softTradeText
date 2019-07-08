@@ -54,6 +54,7 @@
                                                     <span class="label label-sm label-icon label-success">
                                                         <i class="fa fa-plus"></i>
                                                     </span> {!! $note->data['data'] !!} </span>
+													<?php $note->markAsRead()?>
                                             </a>
                                         </li>
                                     @endforeach

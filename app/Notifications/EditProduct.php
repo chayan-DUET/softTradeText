@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class AddProduct extends Notification
+class EditProduct extends Notification
 {
     use Queueable;
 
@@ -16,7 +16,6 @@ class AddProduct extends Notification
      *
      * @return void
      */
-	 protected $product;
     public function __construct(Product $product)
     {
         $this->product = $product;
@@ -30,8 +29,8 @@ class AddProduct extends Notification
      */
     public function via($notifiable)
     {
-        //return ['mail'];
-		return ['database'];
+       //return ['mail'];
+	   return ['database'];
     }
 
     /**
@@ -57,8 +56,7 @@ class AddProduct extends Notification
     public function toArray($notifiable)
     {
         return [
-            // 'data' => 'We are start step ' .$this->product->steps ." <br> Added By " . auth()->user()->name
-			'data' => 'A new order placed <br>' .$this->product->company_name ." Add an order "
+           'data' => 'step ' .$this->product->steps ." <br> are completed "
         ];
     }
 }
