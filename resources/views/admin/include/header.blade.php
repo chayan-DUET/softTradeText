@@ -33,7 +33,16 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="external">
-                                    <h3>
+                                    <h3><?php 
+			     $shipping_id=Session::get('productById');
+				 
+				 print_r($shipping_id);
+				  $shippin_id=Session::get('product');
+				 
+				 print_r($shippin_id);
+				 
+				 ?>	
+
                                         <span class="bold"></span> notifications</h3>
                                     <a href="#" class="dropdown-toggle notificaiton"  data-toggle="dropdown" role="button" aria-expanded="false">
                                   

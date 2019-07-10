@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Notifications\EditProduct;
+use App\Notifications\Editqty;
+use App\Notifications\Editddate;
 use App\Notifications\AddProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
@@ -86,7 +88,9 @@ class ProductController extends Controller
 	public function editProduct($id){
 		 $users = Auth::User()->where('status', 1)->get();
 		 $productById= Product::where('id',$id)->first();
-		
+		Session::put('productById',$productById->quantity);
+		Session::put('productBydd',$productById->bday_dd);
+		//dd(session()->get('productById'));
 		 $steps=explode(",", $productById->steps);
 		 
           return view('admin.product.edit_Product',['productById'=>$productById,'steps'=>$steps,'users'=>$users]);          
@@ -120,8 +124,11 @@ class ProductController extends Controller
 		$product->company_name = $request->company_name;
 		$product->steps = implode(",", $request->steps);
 		$product->bday_dd = $request->bday_dd;
+			Session::put('product',$request->quantity);
+		//dd(session()->get('product'));
         //$product->save();
 		//////
+		if(Session::get('productById') == $request->quantity && Session::get('productById') == $request->bday_dd){
 		 if($product->save()){
             $user = User::all();
             Notification::send($user , new EditProduct($product));
@@ -131,7 +138,30 @@ class ProductController extends Controller
 //         print_r($productImage);
        // echo $imageUrl;
 		 }  // exit();
-    }
+	 }
+	 elseif(Session::get('productById')!=$request->quantity){
+		  if($product->save()){
+            $user = User::all();
+            Notification::send($user , new Editqty($product));
+		//return redirect('/admin/product/product_list')->with('message', 'product update successfully');
+		return redirect('/show-product')->with('message', 'ordere update successfully');
+        //echo '<pre>';
+//         print_r($productImage);
+       // echo $imageUrl;
+		 } 
+	 }
+	  elseif(Session::get('productBydd')!=$request->bday_dd){
+		  if($product->save()){
+            $user = User::all();
+            Notification::send($user , new Editddate($product));
+		//return redirect('/admin/product/product_list')->with('message', 'product update successfully');
+		return redirect('/show-product')->with('message', 'ordere update successfully');
+        //echo '<pre>';
+//         print_r($productImage);
+       // echo $imageUrl;
+		 } 
+	 }
+	 }
 
     public function imageExitStatus($request) {
         $productById = Product::where('id', $request->productId)->first();
