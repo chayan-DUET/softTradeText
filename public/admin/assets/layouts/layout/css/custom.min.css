@@ -21,3 +21,6 @@
 .table tbody td{
     max-width: 130px;
 }
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 3px 5px;
+}

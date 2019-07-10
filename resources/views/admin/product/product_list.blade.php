@@ -62,9 +62,9 @@ session_start();
                                         <thead>
                                             <tr>
                                                 <th> Sl. </th>
+												<th>Order Id</th>
                                                 <th> Factory </th>
 												<th> Company </th>
-												<th>company_no</th>
                                                 <th> TDF </th>
                                                 <th> Cate. </th>
                                                 <th> Style </th>
@@ -82,10 +82,10 @@ session_start();
                                         </thead>
                                         <tbody>
                                             <tr>  
-                                                <td>01</td>   
+                                                <td>01</td> 
+											     <td>888</td>  
                                                 <td>ABC Ltd.</td> 
                                                  <td>ABC com.</td>  
-											     <td>888</td>  
                                                 <td>01.06.2019</td>   
                                                 <td>Women</td>   
                                                 <td>Charlie</td>   
@@ -110,10 +110,10 @@ session_start();
                                                 </td> 
                                             </tr>  
                                             <tr>  
-                                                <td>02</td>   
+                                                <td>02</td> 
+												  <td>884</td> 
                                                 <td>Ananta Ltd.</td>
 											     <td>ABC com.</td>
-												  <td>884</td> 
                                                 <td>01.06.2019</td>   
                                                 <td>Women</td>   
                                                 <td>Charlie</td>   
@@ -142,7 +142,7 @@ session_start();
 											 		  <?php
 													
 												  $datetime1 = strtotime(date("Y/m/d"));
-						$datetime2 = strtotime($product['bday_tfd']);
+						$datetime2 = strtotime($product['bday_dd']);
 
 							$secs =$datetime1-$datetime2;// == <seconds between the two times>
 							$days = $secs / 86400;
@@ -154,19 +154,19 @@ session_start();
 												  @else
                                     <b style="color:red"> May 26, 2019 10:38:22 GMT</b>
                                       @endif -->
-												<tr     @if($days <=7 && $days >=1)  style="background-color: blue;";
-												} @elseif($days <=20 && $days >=8)   style="background-color:   #cc0000;"; 
-												  @elseif($days <=50 && $days >=21)  style="background-color: seagreen;"; 
-												  @elseif($days <=150 && $days >=51)  style="background-color:Olive ;"; 
-												   @else  style="background-color: lightblue;";
+												<tr     @if($days <=7 && $days >=1)  style="background-color: #ffd0d0;";
+												} @elseif($days <=15 && $days >=8)   style="background-color: #e4f8ff"; 
+												  @elseif($days <=30 && $days >=16)  style="background-color: #e2ffef;"; 
+								
+												   @else  style="background-color: #fff;";
 												   @endif
 												     
 								 
 											>
 												   <td>{{$product->id}} </td>
+												   <td>{{$product->company_no}}</td>
 												   <td>{{$product->factory_name}}</td>
 												   <td>{{$product->company_name}}</td>
-												   <td>{{$product->company_no}}</td>
 												  <td>{{$product->bday_tfd}} </td>
 												  <td>{{$product->category==0?'boys':'girl'}}</td>
 												  <td>{{$product->style}}</td>

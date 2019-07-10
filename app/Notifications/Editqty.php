@@ -61,7 +61,7 @@ class Editqty extends Notification
     {
 		
         return [
-            'data' => 'Quentity is change '.$this->product->quantity ." <br> "
+            'data' => 'Quentity is change to'.$this->product->quantity ."for Order no. #123 <br> "
         ];
     }
 }

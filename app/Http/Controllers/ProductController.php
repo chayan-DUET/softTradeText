@@ -128,7 +128,7 @@ class ProductController extends Controller
 		//dd(session()->get('product'));
         //$product->save();
 		//////
-		if(Session::get('productById') == $request->quantity && Session::get('productById') == $request->bday_dd){
+		if((Session::get('productById') == $request->quantity) && (Session::get('productBydd') == $request->bday_dd)){
 		 if($product->save()){
             $user = User::all();
             Notification::send($user , new EditProduct($product));

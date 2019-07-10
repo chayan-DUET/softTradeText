@@ -42,7 +42,7 @@
                         <li class="nav-item">
                             <a href="/softTrade" class="nav-link nav-toggle">
                                 <i class="icon-puzzle"></i>
-                                <span class="title">Product</span>
+                                <span class="title">Order</span>
                                 <span class="selected"></span>
                                 <span class="arrow open"></span>
                             </a>
@@ -52,14 +52,14 @@
                                 <li class="nav-item start active open">
                                     <a href="{{url('/add-product')}}" class="nav-link ">
                                         <i class="icon-bar-chart"></i>
-                                        <span class="title">Add Product</span>
+                                        <span class="title">Add Order</span>
                                         <span class="selected"></span>
                                     </a>
                                 </li>
                                 <li class="nav-item start ">
                                     <a href="{{url('/show-product')}}" class="nav-link ">
                                         <i class="icon-bulb"></i>
-                                        <span class="title">Product List</span>
+                                        <span class="title">Order List</span>
                                         <span class="badge badge-success">1</span>
                                     </a>
                                 </li>

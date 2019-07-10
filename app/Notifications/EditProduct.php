@@ -56,7 +56,7 @@ class EditProduct extends Notification
     public function toArray($notifiable)
     {
         return [
-           'data' => 'step ' .$this->product->steps ." <br> are completed "
+           'data' => 'step ' .$this->product->steps ." <br> are completed for Order no. #123"
         ];
     }
 }

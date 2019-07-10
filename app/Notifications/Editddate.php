@@ -55,7 +55,7 @@ class Editddate extends Notification
     public function toArray($notifiable)
     {
         return [
-             'data' => 'Delivery date is change '.$this->product->bday_dd ." <br> "
+             'data' => 'Delivery date is change to'.$this->product->bday_dd ."for Order no. #123 <br> "
         ];
     }
 }

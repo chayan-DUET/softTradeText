@@ -35,7 +35,8 @@
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="{{asset('public/admin/')}}/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
         <link href="{{asset('public/admin/')}}/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <link href="{{asset('public/admin/')}}/assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
         <link href="{{asset('public/admin/')}}/assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
@@ -693,6 +694,15 @@
         <script src="{{asset('public/admin/')}}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
         <script src="{{asset('public/admin/')}}/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
         <script src="{{asset('public/admin/')}}/assets/pages/scripts/table-datatables-buttons.min.js" type="text/javascript"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		
+		<script>
+			$(function() {
+				$(".datepicker").datepicker({
+					dateFormat: 'dd-mm-yy'
+				});
+			});
+		</script>
 		<!-- END PAGE LEVEL PLUGINS product list -->
     </body>
 
