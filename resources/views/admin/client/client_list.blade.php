@@ -94,18 +94,33 @@
 												   <td>{{$client->email}}</td>
 												  <td><img src="{{URL::to($client->image)}}" style="height:40px;width:40px;"></td>
 												  
-												  <td>{{$client->description}}<a data-toggle="modal" href="#Description">Details</a></td>
+												  <td>{{$client->description}}<br><a data-toggle="modal" data-target="#Description<?php echo $client['id']; ?>"   href="#Description">Details</a></td>
 												  
 												  <td>
-																<a href="{{url('client/edit/'.$client->id)}}" class="btn btn-success">edit
+																<a href="{{url('client/edit/'.$client->id)}}" class="btn btn-success">
 																	<span class="glyphicon glyphicon-edit"></span>
 																</a>
 															<a href="{{url('client/delete/'.$client->id)}}" onclick="return confirm('are u sure delete this item')" class="btn btn-danger">
-																	<span class="glyphicon glyphicon-trash">delete</span>
+																	<span class="glyphicon glyphicon-trash"></span>
 																</a>
 
 															</td>
 												</tr>
+												<div class="modal fade bs-modal-lg" id="Description<?php echo $client['id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+													<div class="modal-dialog modal-lg">
+													<div class="modal-content">
+													<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+													<h4 class="modal-title">Description </h4>
+													</div>
+													<div class="modal-body">
+												
+													<p>{{$client->description}}<p/>
+													
+													</div>
+													</div>
+													</div>
+													</div>
 											   @endforeach
                                         </tbody>
                                     </table>

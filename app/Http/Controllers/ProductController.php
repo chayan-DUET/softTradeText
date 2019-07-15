@@ -26,7 +26,11 @@ class ProductController extends Controller
 	
 	public function show_product(){
 		$product=  Product::all();
-		$product1=  Product::all();
+		 $product1=  Product::all();
+		/*$product= DB::table('Products')
+		->join('users', 'Products.user_id','=','users.id')
+		 ->select('users.*', 'Products.*')
+            ->get(); */
 		//return view('product.Show',['products'=>$product]);
 		//return view('product.Show');
 		return view('admin.product.product_list',['products'=>$product,'product1'=>$product1]);
@@ -99,10 +103,10 @@ class ProductController extends Controller
 	}
 	
 
-	 public function updateProduct(Request $request) {
-       $imageUrl= $this->imageExitStatus($request);
-        
-		$product= Product::find($request->productId);
+	 public function updateProduct(Request $request,$id) {
+       //$imageUrl= $this->imageExitStatus($request);
+        $product= Product::find($id);
+		//$product= Product::find($request->productId);
 		//$product = new Product();
         $product->bday_tfd = $request->bday_tfd;
         $product->category = $request->category;
@@ -113,7 +117,15 @@ class ProductController extends Controller
         //$product->email = $request->email;
        // $client->productLongDiscription = $request->productLongDiscription;
         // $product->productImage=$this->imageUrl;
-        $product->image = $imageUrl;
+        //$product->image = $imageUrl;
+		if($request->hasfile('image')){
+			$file=$request->file('image');
+			$extension = $file->getClientOriginalExtension();
+			$filename=time().'.'.$extension;
+			$file->move('public/productImage/',$filename);
+			$product->image = $filename;
+		}
+		
 		
 		
 
@@ -164,7 +176,7 @@ class ProductController extends Controller
 	 }
 
     public function imageExitStatus($request) {
-        $productById = Product::where('id', $request->productId)->first();
+        /* $productById = Product::where('id', $request->productId)->first();
         $productImage=$request->file('image');
         if ($productImage) {
             unlink($productById->image);
@@ -177,7 +189,14 @@ class ProductController extends Controller
             $imageUrl = $productById->productImage;
         }
 
-        return $imageUrl;
+        return $imageUrl; */
+		if($request->hasfile('image')){
+			$file=$request->file('image');
+			$extension = $file->getClientOriginalExtension();
+			$filename=time().'.'.$extension;
+			$file->move('public/productImage/',$filename);
+			$employees->image = $filename;
+		}
     }
 		
 	

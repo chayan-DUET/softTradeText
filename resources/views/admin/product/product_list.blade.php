@@ -144,7 +144,7 @@ session_start();
 												  $datetime1 = strtotime(date("Y/m/d"));
 						$datetime2 = strtotime($product['bday_dd']);
 
-							$secs =$datetime1-$datetime2;// == <seconds between the two times>
+							$secs =$datetime2-$datetime1;// == <seconds between the two times>
 							$days = $secs / 86400;
 							//echo $days;
 							
@@ -174,7 +174,7 @@ session_start();
 												 <td>{{$product->fabric}}</td>
 												 <td>{{$product->color}}</td>
 												   <td>{{$product->quantity}}</td>
-												  <td><img src="{{URL::to($product->image)}}" style="height:40px;width:40px;"></td>
+												  <td><img src="{{asset('public/productImage/'.$product->image)}}" style="height:40px;width:40px;"></td>
 												  
 												  <td>{{$product->description}}<br><a data-toggle="modal" data-target="#Description<?php echo $product['id']; ?>"   href="#Description">Details</a></td>
 												  <td>{{$product->steps}}<br> <small><a data-toggle="modal" data-target="#Steps<?php echo $product['id']; ?>" href="#Steps">Step Details</a></small></td>

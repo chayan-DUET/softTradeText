@@ -82,7 +82,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item start ">
-                                    <a href="{{url('/show-client')}}" class="nav-link ">
+                                    <a href="{{url('/client-list')}}" class="nav-link ">
                                         <i class="icon-bulb"></i>
                                         <span class="title">Client List</span>
                                         <span class="badge badge-success">1</span>

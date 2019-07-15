@@ -47,7 +47,7 @@ Route::group(['middleware' => ['web','auth']], function () {
 });
 
 //Route::get('/client', 'ClientController@show');
-Route::get('/show-client', 'ClientController@show');
+Route::get('/client-list', 'ClientController@show');
 
 //Route::get('/admin', 'ClientController@admin');
 Route::get('/add-client', 'ClientController@admin');
@@ -68,7 +68,7 @@ Route::get('/show-product', 'ProductController@show_product');
 //Route::get('/show-product', 'ProductController@show_product');
 Route::post('/add-product', 'ProductController@create_product');
 Route::get('product/edit/{id}', 'ProductController@editProduct');
-Route::post('product/update', 'ProductController@updateProduct');
+Route::post('product/update{id}', 'ProductController@updateProduct');
 Route::get('product/delete/{id}', 'ProductController@deleteProduct');
 
 //approve-admin hcon manage-admin

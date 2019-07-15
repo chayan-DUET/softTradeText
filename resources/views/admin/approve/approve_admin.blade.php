@@ -49,7 +49,7 @@
                                                 <th>Company Name</th>
                                                 
                                                 <th> E-Mail </th>
-												<th> Admin </th>
+												<th> Roll </th>
                                                 <th> Type </th>
 												<th> Status </th>
                                                

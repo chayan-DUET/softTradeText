@@ -275,8 +275,9 @@
                                     </div>
                                 </div>
                                 <div class="portlet-body form">
-                                    <form method="POST" action="{{ url('product/update') }}" enctype="multipart/form-data">
+                                    <form method="POST" action="{{ url('product/update'.$productById->id) }}" name="editOrder" enctype="multipart/form-data">
 									@csrf
+									 <input type="hidden" value="{{$productById->id}}" class="form-control" name="productId">
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -309,8 +310,8 @@
 
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label has-info">
-                                                        <select required class="form-control edited" id="category" name="category">
-                                                            <option value="" selected>Select category</option>
+                                                        <select  class="form-control"  name="category">
+                                                            <option >Select category</option>
                                                             <option value="0">Boys</option>
                                                             <option value="1">Girls</option>
                                                             <option value="2">Babys</option>
@@ -379,9 +380,9 @@
                                                     <p for="Image">Image</p>
                                                     <div class="fileinput fileinput-new w-100" data-provides="fileinput">
                                                         <div class="row">
-                                                            <div class="col-md-5">
+                                                            <div class="col-md-5 custom-file">
                                                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"> 
-                                                                   <img src="{{asset($productById->image)}}" alt="" height="100" width="100">
+                                                                
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-7 text-left">
@@ -389,7 +390,9 @@
                                                                     <span class="btn red btn-outline btn-file">
                                                                         <span class="fileinput-new"> Select image </span>
                                                                         <span class="fileinput-exists"> Change </span>
-                                                                        <input type="file" name="image" accept="image/*" required> </span>
+																		   <input type="file" name="image" class="custom-file-input" value="{{$productById->image}}">
+																		   </span>
+                                                                       
                                                                     <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
                                                                 </div>
                                                             </div>
@@ -512,4 +515,8 @@
                 <!-- END CONTENT BODY -->
             </div>
             <!-- END CONTENT -->
+			<script>
+			document.forms['editOrder'].elements['category'].value={{$productById->category}}
+			document.forms['editOrder'].elements['company_name'].value={{$productById->company_name}}
+			</script>
 @endsection

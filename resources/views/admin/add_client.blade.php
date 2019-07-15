@@ -134,7 +134,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </span>
                                 @endif
                             </div>
-							 <div class="form-group">
+							<!-- <div class="form-group">
                                 <input id="description" type="text" placeholder="Description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ old('description') }}" required autocomplete="Description" autofocus>
 
 								
@@ -143,7 +143,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <strong>{{ $errors->first('description') }}</strong>
                                     </span>
                                 @endif
-                            </div>
+                            </div> -->
 					</div>
 					
 					<div class="form-group">

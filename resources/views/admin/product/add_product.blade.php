@@ -62,7 +62,7 @@
 
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="text" class="form-control datepicker" name="bday_tfd" id="TFD">
+                                                        <input type="date" class="form-control " name="bday_tfd" id="TFD">
                                                         <label for="TFD">TFD</label>
                                                         <span class="help-block">Please enter TFD</span>
                                                     </div>
@@ -123,7 +123,7 @@
         
                                                         <div class="col-md-6">
                                                             <div class="form-group form-md-line-input">
-                                                                <input type="text" class="form-control datepicker" name="bday_dd" id="delevery_date">
+                                                                <input type="text" class="form-control " name="bday_dd" id="delevery_date">
                                                                 <label for="delevery_date">Delivery Date</label>
                                                                 <span class="help-block">Please enter delivery date</span>
                                                             </div>
