@@ -56,7 +56,8 @@ class EditProduct extends Notification
     public function toArray($notifiable)
     {
         return [
-           'data' => 'step ' .$this->product->steps ." <br> are completed for Order no. #123"
+		//'data' => 'We are start step ' .$this->product->steps ." <br> Added By " . auth()->user()->name
+           'data' => 'step ' .$this->product->steps ." are completed for Order no.".$this->product->company_no
         ];
     }
 }

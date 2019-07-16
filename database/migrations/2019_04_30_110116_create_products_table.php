@@ -28,6 +28,7 @@ class CreateProductsTable extends Migration
 			$table->string('factory_name');
 			$table->string('company_name');
 			$table->string('steps');
+			$table->string('running_steps');
 			$table->dateTime('bday_dd');
             $table->timestamps();
         });

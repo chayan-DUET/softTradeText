@@ -291,7 +291,7 @@
 												 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
 																 <select class="form-control" name="company_name">
-											<option>Select Company Name</option>
+											   <option>Select Company Name</option>
 											@foreach($users as $user)
 											<option value="{{$user->company_name}}">{{$user->company_name}}</option>
 										   @endforeach

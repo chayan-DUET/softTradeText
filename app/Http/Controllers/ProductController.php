@@ -25,15 +25,15 @@ class ProductController extends Controller
 	}
 	
 	public function show_product(){
-		$product=  Product::all();
-		 $product1=  Product::all();
-		/*$product= DB::table('Products')
+		$products=  Product::all();
+		$product1=  Product::all();
+		/* $product= DB::table('Products')
 		->join('users', 'Products.user_id','=','users.id')
-		 ->select('users.*', 'Products.*')
+		 ->select('users.*', 'contacts.phone', 'orders.price')
             ->get(); */
 		//return view('product.Show',['products'=>$product]);
 		//return view('product.Show');
-		return view('admin.product.product_list',['products'=>$product,'product1'=>$product1]);
+		return view('admin.product.product_list',['products'=>$products,'product1'=>$product1]);
 	}
 	
 	public function create_product(Request $request){
@@ -46,7 +46,7 @@ class ProductController extends Controller
 			'company_name' => 'required',
         ]);
 	   //
-	    $image = $request->file('image');
+/* 	    $image = $request->file('image');
 //        echo '<pre>';
 //        print_r($image);
         $name = $image->getClientOriginalName();
@@ -54,14 +54,14 @@ class ProductController extends Controller
         $uploadPathImage = 'public/productImage/';
         $image->move($uploadPathImage, $name);
         //
-        $imageUrl = $uploadPathImage . $name;
-        $this->saveProductInfo($request, $imageUrl);
+        $imageUrl = $uploadPathImage . $name; */
+        $this->saveProductInfo($request);
 		  // return redirect('/admin/product/product_list')->with('message', 'product update successfully');
 		  // return redirect('/home')->with('message', 'product info save successfully');
 		    
 		   return redirect('/show-product')->with('message', 'order info save successfully');
     }
-		 protected function saveProductInfo($request, $imageUrl) {
+		 protected function saveProductInfo($request) {
         $product = new Product();
         $product->bday_tfd = $request->bday_tfd;
         $product->category = $request->category;
@@ -69,8 +69,14 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->fabric = $request->fabric;
 	
-        
-        $product->image = $imageUrl;
+        if($request->hasfile('image')){
+			$file=$request->file('image');
+			$extension = $file->getClientOriginalExtension();
+			$filename=time().'.'.$extension;
+			$file->move('public/productImage/',$filename);
+			$product->image = $filename;
+		}
+        //$product->image = $imageUrl;
         $product->color = $request->color;
 		$product->company_no = $request->company_no;
 		$product->quantity = $request->quantity;
@@ -79,6 +85,7 @@ class ProductController extends Controller
 		 $product->company_name = $request->company_name;
 		//$product->company_name = $request->company_name;
 		$product->steps = implode(",", $request->steps);
+		 $product->running_steps = $request->running_steps;
 		$product->bday_dd = $request->bday_dd;
         //$product->save();
 		  if($product->save()){

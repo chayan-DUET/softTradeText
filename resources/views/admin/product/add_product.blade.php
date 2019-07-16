@@ -107,6 +107,22 @@
 													<label for="Description">Order ID</label>
 												</div>
 											</div>
+											 <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <select required class="form-control edited" id="category" name="running_steps">
+                                                            <option value="" selected>Running Steps</option>
+                                                            <option value="0">Yarn</option>
+                                                            <option value="1">Knit</option>
+                                                            <option value="2">Dyeing</option>
+															<option value="3">Cutting</option>
+                                                            <option value="4">Print</option>
+                                                            <option value="5">Embo</option>
+															<option value="6">Sewing</option>
+															<option value="7">Wash</option>
+                                                            <option value="8">Pack</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
 														
                                             </div>
 
