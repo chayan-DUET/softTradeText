@@ -293,7 +293,7 @@
 																 <select class="form-control" name="company_name">
 											   <option>Select Company Name</option>
 											@foreach($users as $user)
-											<option value="{{$user->company_name}}">{{$user->company_name}}</option>
+											<option value="{{$user->id}}">{{$user->company_name}}</option>
 										   @endforeach
 										</select>
 															</div>
@@ -338,6 +338,22 @@
                                                         <input type="text" class="form-control" name="color" value="{{$productById->color}}" id="Color">
                                                         <label for="Color">Color</label>
                                                         <span class="help-block">Please enter Color</span>
+                                                    </div>
+                                                </div>
+												 <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <select required class="form-control edited" id="category" name="running_steps">
+                                                            <option value="" selected>Running Steps</option>
+                                                            <option value="0">Yarn</option>
+                                                            <option value="1">Knit</option>
+                                                            <option value="2">Dyeing</option>
+															<option value="3">Cutting</option>
+                                                            <option value="4">Print</option>
+                                                            <option value="5">Embo</option>
+															<option value="6">Sewing</option>
+															<option value="7">Wash</option>
+                                                            <option value="8">Pack</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -517,6 +533,7 @@
             <!-- END CONTENT -->
 			<script>
 			document.forms['editOrder'].elements['category'].value={{$productById->category}}
-			document.forms['editOrder'].elements['company_name'].value={{$productById->company_name}}
+			document.forms['editOrder'].elements['company_name'].value={{$productById->user_id}}
+			document.forms['editOrder'].elements['running_steps'].value={{$productById->running_steps}}
 			</script>
 @endsection

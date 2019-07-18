@@ -54,7 +54,7 @@
                                                          <select class="form-control" name="company_name">
 									<option>Select Company Name</option>
 									@foreach($users as $user)
-									<option value="{{$user->company_name}}">{{$user->company_name}}</option>
+									<option value="{{$user->id}}">{{$user->company_name}}</option>
 								   @endforeach
 								</select>
                                                     </div>

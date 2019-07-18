@@ -137,12 +137,13 @@ session_start();
                                                     </a>
                                                 </td> 
                                             </tr>  
-											 
+											 <?php $number = 0; ?>
 											 @foreach($products as $product)
+											 <?php $number++ ?>  
 											 		  <?php
 													
 												  $datetime1 = strtotime(date("Y/m/d"));
-						$datetime2 = strtotime($product['bday_dd']);
+						$datetime2 = strtotime($product->bday_dd);
 
 							$secs =$datetime2-$datetime1;// == <seconds between the two times>
 							$days = $secs / 86400;
@@ -163,7 +164,7 @@ session_start();
 												     
 								 
 											>
-												   <td>{{$product->id}} </td>
+												   <td>{{$number}} </td>
 												   <td>{{$product->company_no}}</td>
 												   <td>{{$product->factory_name}}</td>
 												   <td>{{$product->company_name}}</td>
@@ -176,15 +177,15 @@ session_start();
 												   <td>{{$product->quantity}}</td>
 												  <td><img src="{{asset('public/productImage/'.$product->image)}}" style="height:40px;width:40px;"></td>
 												  
-												  <td>{{$product->description}}<br><a data-toggle="modal" data-target="#Description<?php echo $product['id']; ?>"   href="#Description">Details</a></td>
-												  <td>{{$product->steps}}<br> <small><a data-toggle="modal" data-target="#Steps<?php echo $product['id']; ?>" href="#Steps">Step Details</a></small></td>
+												  <td>{{$product->description}}<br><a data-toggle="modal" data-target="#Description<?php echo $product->id; ?>"   href="#Description">Details</a></td>
+												  <td>{{$product->steps}}<br> <small><a data-toggle="modal" data-target="#Steps<?php echo $product->id ?>" href="#Steps">Step Details</a></small></td>
 												 
 												   
 													
 
 													@if($product->running_steps =='0')         
 													  <td>Yarn</td>         
-												@elseif($product->running_steps =='1') 
+												    @elseif($product->running_steps =='1') 
 													  <td>Knit</td> 
 													@elseif($product->running_steps =='2') 
 													  <td>Dyeing</td>
@@ -204,7 +205,7 @@ session_start();
 												  <td>
 												  <?php
 												  $datetime1 = strtotime(date("Y/m/d"));
-						$datetime2 = strtotime($product['bday_dd']);
+						$datetime2 = strtotime($product->bday_dd);
 
 							$secs =$datetime1-$datetime2;// == <seconds between the two times>
 							$_SESSION['days'] = $secs / 86400;
@@ -221,7 +222,7 @@ session_start();
                                       @endif
 								 
 												  </td>
-												   <td>{{$product->remark}}<br><a data-toggle="modal" data-target="#Remark<?php echo $product['id']; ?>"  href="#Remark">Details</a></td>
+												   <td>{{$product->remark}}<br><a data-toggle="modal" data-target="#Remark<?php echo $product->id; ?>"  href="#Remark">Details</a></td>
 												  <td>
 															<a href="{{url('product/edit/'.$product->id)}}" class="btn btn-success">
 																	<span class="glyphicon glyphicon-edit"></span>
@@ -232,7 +233,7 @@ session_start();
 
 															</td>
 												</tr>
-												<div class="modal fade bs-modal-lg" id="Description<?php echo $product['id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+												<div class="modal fade bs-modal-lg" id="Description<?php echo $product->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
 													<div class="modal-dialog modal-lg">
 													<div class="modal-content">
 													<div class="modal-header">
@@ -249,7 +250,7 @@ session_start();
 													</div>
 			
 											<!-- -->
-										 <div class="modal fade bs-modal-lg" id="Remark<?php echo $product['id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+										 <div class="modal fade bs-modal-lg" id="Remark<?php echo $product->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
 											<div class="modal-dialog modal-lg">
 											<div class="modal-content">
 											<div class="modal-header">
@@ -281,7 +282,7 @@ session_start();
             <!-- END CONTENT -->
 			
 			<!--Step Large modal START-->
-       <div class="modal fade bs-modal-lg"  id="Steps<?php echo $product['id']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+       <div class="modal fade bs-modal-lg"  id="Steps<?php echo $product->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">

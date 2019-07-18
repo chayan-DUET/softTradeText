@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+use App\Product;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,9 +35,13 @@ Route::group(['middleware' => ['web','auth']], function () {
       $users['users'] = \App\User::all();
       //return view('/Adminhome', $users);
 	  //return view('/admin.adminmaster', $users);
-	  
+
+	   $products= DB::table('Products')
+		->join('users', 'Products.user_id','=','users.id')
+		 ->select('users.*', 'Products.*')
+            ->get(); 
 	       // Session::put('customer_name',$request->customer_name);
-	  return view('/admin.include.menu', $users);
+	  return view('/admin.include.menu', ['products'=>$products,'users'=>$users]);
     }
 	else {
       $users['users'] = \App\User::all();

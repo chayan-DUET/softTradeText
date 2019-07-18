@@ -40,9 +40,15 @@
                                 </div>
                                 <div class="details">
                                     <div class="number">
-                                        <span data-counter="counterup" data-value="1349">0</span>
+									<?php $number = 0; ?>
+									 @foreach($products as $product)
+											 <?php $number++ ?>  
+											 		  
+										 @endforeach			  
+                                        <span data-counter="counterup" data-value=#{{$number}}>0</span>
+										
                                     </div>
-                                    <div class="desc"> New Feedbacks </div>
+                                    <div class="desc">Total Order </div>
                                 </div>
                             </a>
                         </div>
@@ -53,8 +59,18 @@
                                 </div>
                                 <div class="details">
                                     <div class="number">
-                                        <span data-counter="counterup" data-value="12,5">0</span>M$ </div>
-                                    <div class="desc"> Total Profit </div>
+										<?php $i = 0; $sum = 0; 
+										  // $user = DB::table('products')->where('quantity',$quantity)->first();
+										?>
+									 @foreach($products as $product)
+											 <?php $i++ ?>  
+											 
+											   @if(in_array("pack", explode(",", $product->steps)))
+											 <?php $sum++;?>
+												   @endif
+														 @endforeach	
+                                        <span data-counter="counterup" data-value="#{{$sum}}">0</span> </div>
+                                    <div class="desc"> Complete Order </div>
                                 </div>
                             </a>
                         </div>
@@ -65,9 +81,21 @@
                                 </div>
                                 <div class="details">
                                     <div class="number">
-                                        <span data-counter="counterup" data-value="549">0</span>
+									<?php $k = 0; $n = 0; 
+									use App\Product;
+									//use DB;
+										  $main= Product::select('running_steps')->get();
+										?>
+									 @foreach($products as $product)
+											 <?php $k++ ?>  
+											 
+											   @if(($product->running_steps == "0")||($product->running_steps == "1")||($product->running_steps == "2")||($product->running_steps == "3")||($product->running_steps == "4")||($product->running_steps == "5")||($product->running_steps == "6")||($product->running_steps == "7"))
+											 <?php $n++;?>
+												   @endif
+										   @endforeach	
+                                        <span data-counter="counterup" data-value="#{{$n}}">0</span>
                                     </div>
-                                    <div class="desc"> New Orders </div>
+                                    <div class="desc">Order In Process </div>
                                 </div>
                             </a>
                         </div>
@@ -77,9 +105,23 @@
                                     <i class="fa fa-globe"></i>
                                 </div>
                                 <div class="details">
-                                    <div class="number"> +
-                                        <span data-counter="counterup" data-value="89"></span>% </div>
-                                    <div class="desc"> Brand Popularity </div>
+                                    <div class="number"> 
+									<?php $j = 0; $num = 0; 
+										  // $user = DB::table('products')->where('quantity',$quantity)->first();
+										  
+										?>
+										<!--   @if(in_array("pack", explode(",", $product->steps))||in_array("yarn", explode(",", $product->steps)))
+									 @endif -->
+									@foreach($products as $product)
+											 <?php $j++ ?>  
+											 
+											
+												  @if(($product->running_steps == "0")||($product->running_steps == "1")||($product->running_steps == "2")||($product->running_steps == "3")||($product->running_steps == "4")||($product->running_steps == "5")||($product->running_steps == "6")||($product->running_steps == "7"))
+											 <?php $num++;?> 
+												   @endif 
+														 @endforeach	
+                                        <span data-counter="counterup" data-value="#{{$num}}"></span> </div>
+                                    <div class="desc"> Pending Order</div>
                                 </div>
                             </a>
                         </div>
@@ -286,7 +328,7 @@
                                                     </div>
                                                     <div class="mt-author">
                                                         <div class="mt-avatar">
-                                                            <img src="{{asset('public/admin/')}}/assets/pages/media/users/avatar80_3.jpg" />
+                                                            <img src="{{URL::to(Auth::user()->image)}}" />
                                                         </div>
                                                         <div class="mt-author-name">
                                                             <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
@@ -312,7 +354,7 @@
                                                     </div>
                                                     <div class="mt-author">
                                                         <div class="mt-avatar">
-                                                            <img src="{{asset('public/admin/')}}/assets/pages/media/users/avatar80_3.jpg" />
+                                                            <img src="{{URL::to(Auth::user()->image)}}" />
                                                         </div>
                                                         <div class="mt-author-name">
                                                             <a href="javascript:;" class="font-blue-madison">Hugh Grant</a>
@@ -354,7 +396,7 @@
                                                     </div>
                                                     <div class="mt-author">
                                                         <div class="mt-avatar">
-                                                            <img src="{{asset('public/admin/')}}/assets/pages/media/users/avatar80_1.jpg" />
+                                                            <img src="{{URL::to(Auth::user()->image)}}" />
                                                         </div>
                                                         <div class="mt-author-name">
                                                             <a href="javascript:;" class="font-blue">Rory Matthew</a>
@@ -378,7 +420,7 @@
                                                     </div>
                                                     <div class="mt-author">
                                                         <div class="mt-avatar">
-                                                            <img src="{{asset('public/admin/')}}/assets/pages/media/users/avatar80_2.jpg" />
+                                                            <img src="{{URL::to(Auth::user()->image)}}" />
                                                         </div>
                                                         <div class="mt-author-name">
                                                             <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
@@ -400,7 +442,7 @@
                                                     </div>
                                                     <div class="mt-author">
                                                         <div class="mt-avatar">
-                                                            <img src="{{asset('public/admin/')}}/assets/pages/media/users/avatar80_1.jpg" />
+                                                            <img src="{{URL::to(Auth::user()->image)}}" />
                                                         </div>
                                                         <div class="mt-author-name">
                                                             <a href="javascript:;" class="font-blue-madison">Matt Goldman</a>
@@ -439,7 +481,7 @@
                                                     </div>
                                                     <div class="mt-author">
                                                         <div class="mt-avatar">
-                                                            <img src="../assets/pages/media/users/avatar80_1.jpg" />
+                                                            <img src="{{URL::to(Auth::user()->image)}}" />
                                                         </div>
                                                         <div class="mt-author-name">
                                                             <a href="javascript:;" class="font-blue-madison">Rory Matthew</a>
@@ -464,7 +506,7 @@
                                                     </div>
                                                     <div class="mt-author">
                                                         <div class="mt-avatar">
-                                                            <img src="../assets/pages/media/users/avatar80_5.jpg" />
+                                                            <img src="{{URL::to(Auth::user()->image)}}" />
                                                         </div>
                                                         <div class="mt-author-name">
                                                             <a href="javascript:;" class="font-blue-madison">Jessica Wolf</a>
@@ -473,7 +515,7 @@
                                                     </div>
                                                     <div class="clearfix"></div>
                                                     <div class="mt-content border-grey-steel">
-                                                        <img class="timeline-body-img pull-right" src="../assets/pages/media/blog/6.jpg" alt="">
+                                                       <img class="timeline-body-img pull-right" src="../assets/pages/media/blog/6.jpg" alt="">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
                                                             qui ut.</p>
                                                         <a href="javascript:;" class="btn btn-circle green-sharp">Read More</a>
@@ -485,7 +527,7 @@
                                                     </div>
                                                     <div class="mt-author">
                                                         <div class="mt-avatar">
-                                                            <img src="../assets/pages/media/users/avatar80_2.jpg" />
+                                                            <img src="{{URL::to(Auth::user()->image)}}" />
                                                         </div>
                                                         <div class="mt-author-name">
                                                             <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
@@ -507,7 +549,7 @@
                                                     </div>
                                                     <div class="mt-author">
                                                         <div class="mt-avatar">
-                                                            <img src="../assets/pages/media/users/avatar80_2.jpg" />
+                                                            <img src="{{URL::to(Auth::user()->image)}}" />
                                                         </div>
                                                         <div class="mt-author-name">
                                                             <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
@@ -529,7 +571,7 @@
                                                     </div>
                                                     <div class="mt-author">
                                                         <div class="mt-avatar">
-                                                            <img src="../assets/pages/media/users/avatar80_2.jpg" />
+                                                            <img src="{{URL::to(Auth::user()->image)}}" />
                                                         </div>
                                                         <div class="mt-author-name">
                                                             <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
@@ -551,7 +593,7 @@
                                                     </div>
                                                     <div class="mt-author">
                                                         <div class="mt-avatar">
-                                                            <img src="../assets/pages/media/users/avatar80_2.jpg" />
+                                                            <img src="{{URL::to(Auth::user()->image)}}" />
                                                         </div>
                                                         <div class="mt-author-name">
                                                             <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>

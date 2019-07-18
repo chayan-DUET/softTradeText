@@ -25,12 +25,12 @@ class ProductController extends Controller
 	}
 	
 	public function show_product(){
-		$products=  Product::all();
+		//$products=  Product::all();
 		$product1=  Product::all();
-		/* $product= DB::table('Products')
+		 $products= DB::table('Products')
 		->join('users', 'Products.user_id','=','users.id')
-		 ->select('users.*', 'contacts.phone', 'orders.price')
-            ->get(); */
+		 ->select('users.*', 'Products.*')
+            ->get(); 
 		//return view('product.Show',['products'=>$product]);
 		//return view('product.Show');
 		return view('admin.product.product_list',['products'=>$products,'product1'=>$product1]);
@@ -137,6 +137,7 @@ class ProductController extends Controller
 		
 
         $product->color = $request->color;
+		$product->running_steps = $request->running_steps;
 		$product->quantity = $request->quantity;
 		$product->remark = $request->remark;
 		$product->factory_name = $request->factory_name;

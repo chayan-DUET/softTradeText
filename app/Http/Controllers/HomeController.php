@@ -70,5 +70,7 @@ public function editManageAdmin($id){
        // echo $imageUrl;
         // exit();
     }
+	// view dashboard
+	
 	
 }
