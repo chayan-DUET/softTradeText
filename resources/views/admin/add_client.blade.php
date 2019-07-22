@@ -53,7 +53,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN LOGO -->
         <div class="logo">
             <a href="index.html">
-                <img src="{{asset('public/admin/')}}/assets/pages/img/logo-big.png" alt="" /> </a>
+                <img src="{{asset('public/admin/')}}/assets/layouts/layout/img/textrade.png" alt="" /> </a>
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->
@@ -146,8 +146,8 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div> -->
 					</div>
 					
-					<div class="form-group">
-                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+				<!--	<div class="form-group">
+                    ie8, ie9 does not support html5 placeholder, so we just show field title for that
                   <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
 
                             <div class="form-group">
@@ -159,7 +159,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </span>
                                 @endif
                             </div>
-					</div>
+					</div> -->
 					
                 <div class="form-group">
                     <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->

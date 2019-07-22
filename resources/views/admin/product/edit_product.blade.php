@@ -314,7 +314,6 @@
                                                             <option >Select category</option>
                                                             <option value="0">Boys</option>
                                                             <option value="1">Girls</option>
-                                                            <option value="2">Babys</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -342,7 +341,7 @@
                                                 </div>
 												 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <select required class="form-control edited" id="category" name="running_steps">
+                                                        <select required class="form-control edited" id="category1" name="running_steps">
                                                             <option value="" selected>Running Steps</option>
                                                             <option value="0">Yarn</option>
                                                             <option value="1">Knit</option>
@@ -398,7 +397,7 @@
                                                         <div class="row">
                                                             <div class="col-md-5 custom-file">
                                                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"> 
-                                                                
+                                                                  <img src="{{asset('public/productImage/'.$productById->image)}}" alt="" height="100" width="100">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-7 text-left">

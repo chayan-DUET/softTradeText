@@ -1,5 +1,7 @@
 <?php
 
+use App\Charts\SampleChart;
+
 use App\User;
 use App\Product;
 /*
@@ -27,7 +29,7 @@ Route::group(['middleware' => ['web','auth']], function () {
 	//return view('/admin.include.menu');
 //});
 
- Route::get('/', function() {
+/*  Route::get('/', function() {
 	 Session::put('user_id',Auth::user()->admin);
     if (Auth::user()->admin == 0) {
       return view('/home');
@@ -40,8 +42,17 @@ Route::group(['middleware' => ['web','auth']], function () {
 		->join('users', 'Products.user_id','=','users.id')
 		 ->select('users.*', 'Products.*')
             ->get(); 
+			 $product = Product::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"), date('Y'))->get();
+         $chart = Charts::database($product, 'Area', 'highcharts')
+                     ->title('Product Details')
+                     ->elementLabel('Total product')
+                     ->dimensions(1000, 500)
+                     ->colors(['red', 'green', 'blue', 'yellow', 'orange', 'cyan', 'magenta'])
+                     ->groupByMonth(date('Y'), true);
+					 $nextId = DB::table('users')->max('id') + 1;
+        //return view('charts', ['chart' => $chart]);
 	       // Session::put('customer_name',$request->customer_name);
-	  return view('/admin.include.menu', ['products'=>$products,'users'=>$users]);
+	  return view('/admin.include.menu', ['products'=>$products,'users'=>$users,'chart'=>$chart,'nextId'=>$nextId]);
     }
 	else {
       $users['users'] = \App\User::all();
@@ -50,8 +61,8 @@ Route::group(['middleware' => ['web','auth']], function () {
 	  return view('/admin.include.menu', $users);
     }
 
-});
-
+}); */
+Route::get('/', 'HomeController@index');
 //Route::get('/client', 'ClientController@show');
 Route::get('/client-list', 'ClientController@show');
 
@@ -96,7 +107,7 @@ Route::post('product/update', 'ProductController@updateProduct');
 Route::get('product/delete/{id}', 'ProductController@deleteProduct');
 
 //user controller /profile
-Route::get('/profile', 'UserController@profile');
-Route::post('/profile', 'UserController@update_profile');
+Route::get('/softTrade/profile', 'UserController@profile');
+Route::post('/softTrade/profile', 'UserController@update_profile');
 
 });

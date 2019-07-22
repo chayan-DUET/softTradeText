@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Charts\SampleChart;
+use Charts;
+use Auth;
+use App\Product;
 use App\User;
 use DB;
 use Session;
@@ -30,7 +33,37 @@ class HomeController extends Controller
     {
         //return view('home');
 		//return view('admin.adminmaster');
-		 return view('admin.include.menu');
+		 //return view('admin.include.menu');
+		 	 Session::put('user_id',Auth::user()->admin);
+    if (Auth::user()->admin == 0) {
+      return view('/home');
+    } elseif(Auth::user()->admin == 1) {
+      $users['users'] = \App\User::all();
+      //return view('/Adminhome', $users);
+	  //return view('/admin.adminmaster', $users);
+
+	   $products= DB::table('Products')
+		->join('users', 'Products.user_id','=','users.id')
+		 ->select('users.*', 'Products.*')
+            ->get(); 
+			 $product = Product::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"), date('Y'))->get();
+         $chart = Charts::database($product, 'Area', 'highcharts')
+                     ->title('Product Details')
+                     ->elementLabel('Total product')
+                     ->dimensions(1000, 500)
+                     ->colors(['red', 'green', 'blue', 'yellow', 'orange', 'cyan', 'magenta'])
+                     ->groupByMonth(date('Y'), true);
+					 $nextId = DB::table('users')->max('id') + 1;
+        //return view('charts', ['chart' => $chart]);
+	       // Session::put('customer_name',$request->customer_name);
+	  return view('/admin.include.menu', ['products'=>$products,'users'=>$users,'chart'=>$chart,'nextId'=>$nextId]);
+    }
+	else {
+      $users['users'] = \App\User::all();
+      //return view('/Adminhome', $users);
+	  //return view('/admin.adminmaster', $users);
+	  return view('/admin.include.menu', $users);
+    }
     }
 	
 	public function addClient(){

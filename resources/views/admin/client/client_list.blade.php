@@ -84,15 +84,15 @@
                                             @foreach($client as $client)
 												<tr>
 												   <td>{{$client->id}} </td>
-												   <td>{{$client->first_name}}</td>
+												   <td>{{$client->fast_name}}</td>
 												  <td>{{$client->last_name}} </td>
-												  <td>{{$client->full_name}}</td>
+												  <td>{{$client->name}}</td>
 												  <td>{{$client->company_name}}</td>
 												  
 												 <td>{{$client->address}}</td>
 												 <td>{{$client->phone}}</td>
 												   <td>{{$client->email}}</td>
-												  <td><img src="{{URL::to($client->image)}}" style="height:40px;width:40px;"></td>
+												  <td><img src="{{asset('public/productImage/'.$client->image)}}" style="height:40px;width:40px;"></td>
 												  
 												  <td>{{$client->description}}<br><a data-toggle="modal" data-target="#Description<?php echo $client['id']; ?>"   href="#Description">Details</a></td>
 												  

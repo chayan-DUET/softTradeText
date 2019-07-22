@@ -82,7 +82,7 @@ class ProductController extends Controller
 		$product->quantity = $request->quantity;
 		$product->remark = $request->remark;
 		$product->factory_name = $request->factory_name;
-		 $product->company_name = $request->company_name;
+		 $product->user_id = $request->company_name;
 		//$product->company_name = $request->company_name;
 		$product->steps = implode(",", $request->steps);
 		 $product->running_steps = $request->running_steps;
@@ -104,7 +104,7 @@ class ProductController extends Controller
 		//dd(session()->get('productById'));
 		 $steps=explode(",", $productById->steps);
 		 
-          return view('admin.product.edit_Product',['productById'=>$productById,'steps'=>$steps,'users'=>$users]);          
+          return view('admin.product.edit_product',['productById'=>$productById,'steps'=>$steps,'users'=>$users]);          
 		 //return view('product.editProduct',['productById'=>$productById,'steps'=>$steps]);
 		//return view('product.editProduct');
 	}
@@ -141,7 +141,7 @@ class ProductController extends Controller
 		$product->quantity = $request->quantity;
 		$product->remark = $request->remark;
 		$product->factory_name = $request->factory_name;
-		$product->company_name = $request->company_name;
+		$product->user_id = $request->company_name;
 		$product->steps = implode(",", $request->steps);
 		$product->bday_dd = $request->bday_dd;
 			Session::put('product',$request->quantity);

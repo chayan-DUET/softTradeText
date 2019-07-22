@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Client;
 use DB;
@@ -11,7 +13,7 @@ class ClientController extends Controller
 {
     public function show(){
 		  //return view('/registerclient');
-		  	$client=  Client::all();
+		  	$client=  User::all();
 		
 		return view('admin.client.client_list',['client'=>$client]);
 		 // return view('admin.client.client_list');
@@ -29,7 +31,7 @@ class ClientController extends Controller
             'company_name' => 'required',
         ]);
 	   //
-	    $image = $request->file('image');
+/* 	    $image = $request->file('image');
 //        echo '<pre>';
 //        print_r($image);
         $name = $image->getClientOriginalName();
@@ -37,21 +39,29 @@ class ClientController extends Controller
         $uploadPathImage = 'public/clientImage/';
         $image->move($uploadPathImage, $name);
         //
-        $imageUrl = $uploadPathImage . $name;
-        $this->saveClientInfo($request, $imageUrl);
-		   return redirect('/show-client')->with('message', 'product info save successfully');
+        $imageUrl = $uploadPathImage . $name; */
+        $this->saveClientInfo($request);
+		   return redirect('/client-list')->with('message', 'product info save successfully');
     }
-		 protected function saveClientInfo($request, $imageUrl) {
-        $client = new Client();
-        $client->first_name = $request->first_name;
+		 protected function saveClientInfo($request) {
+			 // $client = new Client();
+        $client = new User();
+        $client->fast_name = $request->first_name;
         $client->last_name = $request->last_name;
-        $client->full_name = $request->full_name;
+        $client->name = $request->full_name;
         $client->address = $request->address;
         $client->phone = $request->phone;
         $client->email = $request->email;
        // $client->productLongDiscription = $request->productLongDiscription;
         // $product->productImage=$this->imageUrl;
-        $client->image = $imageUrl;
+        //$client->image = $imageUrl;
+		if($request->hasfile('image')){
+			$file=$request->file('image');
+			$extension = $file->getClientOriginalExtension();
+			$filename=time().'.'.$extension;
+			$file->move('public/productImage/',$filename);
+			$client->image = $filename;
+		}
         $client->company_name = $request->company_name;
 		//$client->quantity = $request->quantity;
 		$client->description = $request->description;
@@ -76,29 +86,37 @@ class ClientController extends Controller
    } */
    
    	public function editClient($id){
-		 $clientById= Client::where('id',$id)->first();
+		 $clientById= User::where('id',$id)->first();
           return view('admin.client.edit_client',['clientById'=>$clientById]);          
 
 	}
 	
 	 public function updateClient(Request $request) {
-       $imageUrl= $this->imageExitStatus($request);
+      // $imageUrl= $this->imageExitStatus($request);
         
-		$client= Client::find($request->ClientId);
+		$client= User::find($request->ClientId);
 		//$product = new Product();
-        $client->first_name = $request->first_name;
+        $client->fast_name = $request->first_name;
          $client->last_name = $request->last_name;
-        $client->full_name = $request->full_name;
+        $client->name = $request->full_name;
 		$client->company_name = $request->company_name;
         $client->address = $request->address;
         $client->phone = $request->phone;
         $client->email = $request->email;
-        $client->image = $imageUrl;
+       // $client->image = $imageUrl;
+	   if($request->hasfile('image')){
+			$file=$request->file('image');
+			$extension = $file->getClientOriginalExtension();
+			$filename=time().'.'.$extension;
+			$file->move('public/productImage/',$filename);
+			$client->image = $filename;
+		}
+		
 		$client->description = $request->description;
 		
         $client->save();
 		//return redirect('/admin/product/product_list')->with('message', 'product update successfully');
-		return redirect('/show-client')->with('message', 'product update successfully');
+		return redirect('/client-list')->with('message', 'product update successfully');
         //echo '<pre>';
 //         print_r($productImage);
        // echo $imageUrl;

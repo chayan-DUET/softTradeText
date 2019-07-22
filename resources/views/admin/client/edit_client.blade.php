@@ -44,7 +44,7 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" name="first_name" value="{{$clientById->first_name}}" id="first_name">
+                                                        <input type="text" class="form-control" name="first_name" value="{{$clientById->fast_name}}" id="first_name">
                                                         <input type="hidden" value="{{$clientById->id}}" class="form-control" name="ClientId">
 														<label for="factory_name">First Name</label>
                                                         <span class="help-block">Please Enter First Name</span>
@@ -61,7 +61,7 @@
 
                                                 <div class="col-md-4">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" name="full_name" value="{{$clientById->full_name}}" id="full_name">
+                                                        <input type="text" class="form-control" name="full_name" value="{{$clientById->name}}" id="full_name">
                                                         <label for="Style">Full Name</label>
                                                         <span class="help-block">Please enter Full Name</span>
                                                     </div>
@@ -104,7 +104,7 @@
                                                         
 														 <div class="col-md-6">
                                                             <div class="form-group form-md-line-input form-md-floating-label">
-                                                                <textarea class="form-control" name="description" value="{{$clientById->description}}" rows="3"></textarea>
+                                                                <textarea class="form-control" name="description"  rows="3">{{$clientById->description}}</textarea>
                                                                 <label for="Description">Description</label>
                                                             </div>
                                                         </div>
@@ -121,7 +121,7 @@
                                                         <div class="row">
                                                             <div class="col-md-5">
                                                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"> 
-                                                                   <img src="{{asset($clientById->image)}}" alt="" height="100" width="100">
+                                                                    <img src="{{asset('public/productImage/'.$clientById->image)}}" alt="" height="100" width="100">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-7 text-left">
@@ -129,7 +129,7 @@
                                                                     <span class="btn red btn-outline btn-file">
                                                                         <span class="fileinput-new"> Select image </span>
                                                                         <span class="fileinput-exists"> Change </span>
-                                                                        <input type="file" name="image" accept="image/*"> </span>
+                                                                        <input type="file" name="image" class="custom-file-input" value="{{$clientById->image}}">
                                                                     <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
                                                                 </div>
                                                             </div>

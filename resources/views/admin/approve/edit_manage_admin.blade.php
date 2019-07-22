@@ -39,7 +39,7 @@
                                     </div>
                                 </div>
                                 <div class="portlet-body form">
-                                    <form method="POST" action="{{ url('manage-admin/update') }}" enctype="multipart/form-data">
+                                    <form method="POST" action="{{ url('manage-admin/update') }}"  name="editOrder" enctype="multipart/form-data">
 									@csrf
                                         <div class="form-body">
                                             <div class="row">
@@ -113,4 +113,9 @@
                 <!-- END CONTENT BODY -->
             </div>
             <!-- END CONTENT -->
+			<script>
+			document.forms['editOrder'].elements['admin'].value={{$adminById->admin}}
+			document.forms['editOrder'].elements['type'].value={{$adminById->type}}
+			document.forms['editOrder'].elements['status'].value={{$adminById->status}}
+			</script>
 @endsection

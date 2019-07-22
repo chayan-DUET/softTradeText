@@ -58,7 +58,7 @@
                                             <a href="" class="{{ $note->read_at == null ? 'unread' : '' }}">
                                                     
                                             
-                                                <span class="time">just now</span>
+                                                <span class="time">{{$note->created_at->diffForHumans()}}</span>
                                                 <span class="details">
                                                     <span class="label label-sm label-icon label-success">
                                                         <i class="fa fa-plus"></i>
@@ -340,7 +340,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
-                                    <a href="/softTrade/profile">
+                                    <a href="{{url('/softTrade/profile')}}">
                                         <i class="icon-user"></i> My Profile </a>
                                 </li>
 								<!--  

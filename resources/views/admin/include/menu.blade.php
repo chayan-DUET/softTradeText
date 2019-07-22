@@ -154,6 +154,14 @@
                                         <div id="site_statistics" class="chart"> </div>
                                     </div>
                                 </div>
+											<!--	<div class="container">
+												<h1 style="text-align: center;">Charts with Laravel</h1>
+												<br>
+												{!! $chart->html() !!}
+											</div>
+
+											{!! Charts::scripts() !!}
+											{!! $chart->script() !!} -->:
                             </div>
                             <!-- END PORTLET-->
                         </div>
@@ -229,7 +237,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-12 col-sm-12">
                             <div class="portlet light portlet-fit bordered">
                                 <div class="portlet-title">
                                     <div class="caption">
@@ -306,39 +314,41 @@
                                             </div>
                                             <!-- .events-wrapper -->
                                             <ul class="cd-timeline-navigation mt-ht-nav-icon">
+											@foreach($products as $product)
                                                 <li>
                                                     <a href="#0" class="prev inactive btn btn-outline red md-skip">
-                                                        <i class="fa fa-chevron-left"></i>
+                                                        <i class="fa fa-chevron-left"><?php{{$nextId++}}?></i>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#0" class="next btn btn-outline red md-skip">
-                                                        <i class="fa fa-chevron-right"></i>
+                                                        <i class="fa fa-chevron-right"><?php{{$nextId--}}?></i>
                                                     </a>
                                                 </li>
+												@endforeach
                                             </ul>
                                             <!-- .cd-timeline-navigation -->
                                         </div>
                                         <!-- .timeline -->
                                         <div class="events-content">
                                             <ol>
+												
                                                 <li class="selected" data-date="16/01/2014">
                                                     <div class="mt-title">
                                                         <h2 class="mt-content-title">New User</h2>
                                                     </div>
                                                     <div class="mt-author">
                                                         <div class="mt-avatar">
-                                                            <img src="{{URL::to(Auth::user()->image)}}" />
+                                                            <img src="{{asset('public/productImage/'.$product->image)}}" />
                                                         </div>
                                                         <div class="mt-author-name">
-                                                            <a href="javascript:;" class="font-blue-madison">Andres Iniesta</a>
+                                                            <a href="javascript:;" class="font-blue-madison">{{$product->company_name}}</a>
                                                         </div>
                                                         <div class="mt-author-datetime font-grey-mint">16 January 2014 : 7:45 PM</div>
                                                     </div>
                                                     <div class="clearfix"></div>
                                                     <div class="mt-content border-grey-steel">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod eleifend ipsum, at posuere augue. Pellentesque mi felis, aliquam at iaculis eu, mi felis, aliquam at iaculis mi felis, aliquam
-                                                            at iaculis finibus eu ex. Integer efficitur tincidunt malesuada. Sed sit amet molestie elit, vel placerat ipsum. Ut consectetur odio non est rhoncus volutpat.</p>
+                                                        <p>{{$product->description}}</p>
                                                         <a href="javascript:;" class="btn btn-circle red btn-outline">Read More</a>
                                                         <a href="javascript:;" class="btn btn-circle btn-icon-only blue">
                                                             <i class="fa fa-plus"></i>
@@ -348,6 +358,7 @@
                                                         </a>
                                                     </div>
                                                 </li>
+												
                                                 <li data-date="28/02/2014">
                                                     <div class="mt-title">
                                                         <h2 class="mt-content-title">Sending Shipment</h2>
@@ -357,7 +368,7 @@
                                                             <img src="{{URL::to(Auth::user()->image)}}" />
                                                         </div>
                                                         <div class="mt-author-name">
-                                                            <a href="javascript:;" class="font-blue-madison">Hugh Grant</a>
+                                                             <a href="javascript:;" class="font-blue-madison">{{$product->company_name}}</a>
                                                         </div>
                                                         <div class="mt-author-datetime font-grey-mint">28 February 2014 : 10:15 AM</div>
                                                     </div>
@@ -616,7 +627,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-6 col-sm-6" style="display: none;">
                             <div class="portlet light portlet-fit bordered">
                                 <div class="portlet-title">
                                     <div class="caption">
@@ -987,7 +998,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" style="display: none;">
                         <div class="col-md-6 col-sm-6">
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
@@ -1301,7 +1312,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
                             <div class="portlet light tasks-widget bordered">
                                 <div class="portlet-title">
                                     <div class="caption">
@@ -1687,7 +1697,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row"  style="display: none;">
                         <div class="col-md-6 col-sm-6">
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
