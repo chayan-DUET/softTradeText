@@ -118,7 +118,7 @@ echo "Today is " . date("Y/m/d") . "<br>";
                                                 
                                             </tr>  
 											 @foreach($products as $product)
-											 		 
+											 	@if($product->id == auth()->user()->id)	 
 												<tr>
 												   <td>{{$product->id}} </td>
 												   <td>{{$product->factory_name}}</td>
@@ -195,6 +195,7 @@ echo "Today is " . date("Y/m/d") . "<br>";
 			</div>
 			</div>
 			</div>
+			@endif
 											   @endforeach
                                         </tbody>
                                     </table>

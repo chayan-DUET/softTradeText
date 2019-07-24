@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
-
+use Hash;
 use App\User;
 use Illuminate\Http\Request;
 use App\Client;
@@ -66,7 +66,7 @@ class ClientController extends Controller
 		//$client->quantity = $request->quantity;
 		$client->description = $request->description;
 		$client->status = $request->status;
-		$client->password = $request->password;
+		$client->password =Hash::make($request->password);
         $client->save();
     }
 	   //
@@ -115,7 +115,7 @@ class ClientController extends Controller
 		$client->description = $request->description;
 		
         $client->save();
-		//return redirect('/admin/product/product_list')->with('message', 'product update successfully');
+		//return redirect('/admin/product/product_list')->with('message', 'Client update successfully');
 		return redirect('/client-list')->with('message', 'product update successfully');
         //echo '<pre>';
 //         print_r($productImage);
@@ -123,7 +123,7 @@ class ClientController extends Controller
         // exit();
     }
 	
-	  public function imageExitStatus($request) {
+	/*   public function imageExitStatus($request) {
         $clientById = Client::where('id', $request->ClientId)->first();
         $clientImage=$request->file('image');
         if ($clientImage) {
@@ -138,18 +138,18 @@ class ClientController extends Controller
         }
 
         return $imageUrl;
-    }
+    } */
 		public function deleteClient($id){
-        $client= Client::find($id);
+        $client= User::find($id);
         $client->delete();
-        return redirect('/show-client')->with('message', 'manufacture info delete successfully');
+        return redirect('/client-list')->with('message', 'Client info delete successfully');
     
 	}
    
     public function client_login(Request $request){
 	                    $email=$request->email;
 						 $password=$request->password;
-						 $result_login=DB::table('Clients')
+						 $result_login=DB::table('users')
 						              ->where('email',$email)
 									  ->where('password',$password)
 									  ->first();

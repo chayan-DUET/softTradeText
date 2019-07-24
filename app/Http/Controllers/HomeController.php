@@ -62,7 +62,19 @@ class HomeController extends Controller
       $users['users'] = \App\User::all();
       //return view('/Adminhome', $users);
 	  //return view('/admin.adminmaster', $users);
-	  return view('/admin.include.menu', $users);
+	   $products= DB::table('products')
+		->join('users', 'products.user_id','=','users.id')
+		 ->select('users.*', 'products.*')
+            ->get(); 
+			 $product = Product::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"), date('Y'))->get();
+         $chart = Charts::database($product, 'Area', 'highcharts')
+                     ->title('Product Details')
+                     ->elementLabel('Total product')
+                     ->dimensions(1000, 500)
+                     ->colors(['red', 'green', 'blue', 'yellow', 'orange', 'cyan', 'magenta'])
+                     ->groupByMonth(date('Y'), true);
+					 $nextId = DB::table('users')->max('id') + 1;
+	  return view('/admin.include.menu',  ['products'=>$products,'users'=>$users,'chart'=>$chart,'nextId'=>$nextId]);
     }
     }
 	
