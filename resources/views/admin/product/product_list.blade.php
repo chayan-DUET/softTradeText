@@ -182,26 +182,8 @@ session_start();
 												 
 												   
 													
-
-													@if($product->running_steps =='0')         
-													  <td>Yarn</td>         
-												    @elseif($product->running_steps =='1') 
-													  <td>Knit</td> 
-													@elseif($product->running_steps =='2') 
-													  <td>Dyeing</td>
-													@elseif($product->running_steps =='3') 
-													  <td>Cutting</td>
-													@elseif($product->running_steps =='4') 
-													  <td>Print</td>
-													@elseif($product->running_steps =='5') 
-													  <td>Embo</td>	
-													@elseif($product->running_steps =='3') 
-													  <td>Sewing</td>
-													@elseif($product->running_steps =='4') 
-													  <td>Wash</td>
-													@elseif($product->running_steps =='5') 
-													  <td>Pack</td>														  
-												@endif
+													 <td>{{$product->running_steps}}</td>
+													
 												  <td>
 												  <?php
 												  $datetime1 = strtotime(date("Y/m/d"));

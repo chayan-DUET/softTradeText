@@ -65,6 +65,8 @@ class ProductController extends Controller
         $product = new Product();
         $product->bday_tfd = $request->bday_tfd;
         $product->category = $request->category;
+		 $product->comp_sname = $request->comp_sname;
+		  $product->season = $request->season;
         $product->style = $request->style;
         $product->description = $request->description;
         $product->fabric = $request->fabric;
@@ -84,9 +86,24 @@ class ProductController extends Controller
 		$product->factory_name = $request->factory_name;
 		 $product->user_id = $request->company_name;
 		//$product->company_name = $request->company_name;
+/* 		 $steps = $request->input('steps');
+  if (!empty($steps)) {
+     $product->steps = implode(',', $steps);
+  } else {
+     $product->steps = '';
+  } */
 		$product->steps = implode(",", $request->steps);
-		 $product->running_steps = $request->running_steps;
+		 //$product->running_steps = $request->running_steps;
+		 //$running_steps = $request->input('running_steps');
+         $product->running_steps = implode(",", $request->running_steps);
 		$product->bday_dd = $request->bday_dd;
+		$product->will_send_date = $request->will_send_date;
+		$product->Sent_date = $request->Sent_date;
+		$product->will_comment = $request->will_comment;
+		$product->revised_date = $request->revised_date;
+		$product->revised_sent_date = $request->revised_sent_date;
+		$product->revised_comment = $request->revised_comment;
+		
         //$product->save();
 		  if($product->save()){
             $user = User::all();
@@ -142,6 +159,7 @@ class ProductController extends Controller
 		$product->remark = $request->remark;
 		$product->factory_name = $request->factory_name;
 		$product->user_id = $request->company_name;
+		$product->update_order = $request->update_order;
 		$product->steps = implode(",", $request->steps);
 		$product->bday_dd = $request->bday_dd;
 			Session::put('product',$request->quantity);

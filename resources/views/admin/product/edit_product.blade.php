@@ -332,50 +332,80 @@
                                                         <span class="help-block">Please enter Fabric</span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" name="color" value="{{$productById->color}}" id="Color">
-                                                        <label for="Color">Color</label>
-                                                        <span class="help-block">Please enter Color</span>
-                                                    </div>
-                                                </div>
-												 <div class="col-md-4">
-                                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <select required class="form-control edited" id="category1" name="running_steps">
-                                                            <option value="" selected>Running Steps</option>
-                                                            <option value="0">Yarn</option>
-                                                            <option value="1">Knit</option>
-                                                            <option value="2">Dyeing</option>
-															<option value="3">Cutting</option>
-                                                            <option value="4">Print</option>
-                                                            <option value="5">Embo</option>
-															<option value="6">Sewing</option>
-															<option value="7">Wash</option>
-                                                            <option value="8">Pack</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+											</div>
+											<div class="row">
+												<div class="col-md-8">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group form-md-line-input form-md-floating-label">
+																<input type="text" class="form-control" name="color" value="{{$productById->color}}" id="Color">
+																<label for="Color">Color</label>
+																<span class="help-block">Please enter Color</span>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group form-md-line-input form-md-floating-label">
+																<select required class="form-control edited" id="category1" name="running_steps">
+																	<option value="" selected>Running Steps</option>
+																	<option value="0">Yarn</option>
+																	<option value="1">Knit</option>
+																	<option value="2">Dyeing</option>
+																	<option value="3">Cutting</option>
+																	<option value="4">Print</option>
+																	<option value="5">Embo</option>
+																	<option value="6">Sewing</option>
+																	<option value="7">Wash</option>
+																	<option value="8">Pack</option>
+																</select>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group form-md-line-input form-md-floating-label">
+																<input type="number" class="form-control" name="quantity" value="{{$productById->quantity}}" id="Quantity">
+																<label for="Quantity">Quantity</label>
+																<span class="help-block">Please enter quantity</span>
+															</div>
+														</div>
+
+														<div class="col-md-6">
+															<div class="form-group form-md-line-input form-md-floating-label">
+																<input type="text" class="form-control" name="bday_dd" value="{{$productById->bday_dd}}" id="delevery_date">
+																<label for="delevery_date">Delevery Date</label>
+																<span class="help-block">Please enter delevery date</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												
+												<div class="col-md-4">
+													<p for="Image">Image</p>
+													<div class="fileinput fileinput-new w-100" data-provides="fileinput">
+														<div class="row">
+															<div class="col-md-5 custom-file">
+																<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"> 
+																  <img src="{{asset('public/productImage/'.$productById->image)}}" alt="" height="100" width="100">
+																</div>
+															</div>
+															<div class="col-md-7 text-left">
+																<div style="margin-top: 110px;">
+																	<span class="btn red btn-outline btn-file">
+																		<span class="fileinput-new"> Select image </span>
+																		<span class="fileinput-exists"> Change </span>
+																		   <input type="file" name="image" class="custom-file-input" value="{{$productById->image}}">
+																		   </span>
+																	   
+																	<a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-md-8">
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                <input type="number" class="form-control" name="quantity" value="{{$productById->quantity}}" id="Quantity">
-                                                                <label for="Quantity">Quantity</label>
-                                                                <span class="help-block">Please enter quantity</span>
-                                                            </div>
-                                                        </div>
-        
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                <input type="text" class="form-control" name="bday_dd" value="{{$productById->bday_dd}}" id="delevery_date">
-                                                                <label for="delevery_date">Delevery Date</label>
-                                                                <span class="help-block">Please enter delevery date</span>
-                                                            </div>
-                                                        </div>
-
+                                                       
                                                         <div class="col-md-6">
                                                             <div class="form-group form-md-line-input form-md-floating-label">
                                                                 <textarea class="form-control" name="description" rows="3">{{$productById->description}}</textarea>
@@ -392,26 +422,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <p for="Image">Image</p>
-                                                    <div class="fileinput fileinput-new w-100" data-provides="fileinput">
-                                                        <div class="row">
-                                                            <div class="col-md-5 custom-file">
-                                                                <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"> 
-                                                                  <img src="{{asset('public/productImage/'.$productById->image)}}" alt="" height="100" width="100">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-7 text-left">
-                                                                <div style="margin-top: 110px;">
-                                                                    <span class="btn red btn-outline btn-file">
-                                                                        <span class="fileinput-new"> Select image </span>
-                                                                        <span class="fileinput-exists"> Change </span>
-																		   <input type="file" name="image" class="custom-file-input" value="{{$productById->image}}">
-																		   </span>
-                                                                       
-                                                                    <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <textarea class="form-control" rows="3" name="update_order" id="update_order">{{$productById->update_order}}</textarea>
+														<label for="Color">Last Update</label>
+                                                        <span class="help-block">Please enter last update</span>
                                                     </div>
                                                 </div>
                                                 

@@ -42,25 +42,38 @@
 									@csrf
                                         <div class="form-body">
                                             <div class="row">
-                                                <div class="col-md-4">
+                                            <div class="col-md-2 d-none">
+												<div class="form-group form-md-line-input form-md-floating-label">
+													<input type="text" id="demo" class="form-control" name="company_no" rows="3" value="company_no" readonly>
+													<label for="Description">Order ID</label>
+												</div>
+											</div>
+                                                <div class="col-md-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" name="factory_name" id="factory_name">
                                                         <label for="factory_name">Factory Name</label>
                                                         <span class="help-block">Please enter factory name</span>
                                                     </div>
                                                 </div>
-												<div class="col-md-4">
+												<div class="col-md-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                         <select class="form-control" name="company_name">
-									<option>Select Company Name</option>
-									@foreach($users as $user)
-									<option value="{{$user->id}}">{{$user->company_name}}</option>
-								   @endforeach
-								</select>
+                                                        <select class="form-control" name="company_name">
+                                                            <option>Select Company Name</option>
+                                                            @foreach($users as $user)
+                                                            <option value="{{$user->id}}">{{$user->company_name}}</option>
+                                                        @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" name="comp_sname" id="">
+                                                        <label for="">Company ID</label>
+                                                        <span class="help-block">Please enter Company ID</span>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-4">
+                                                <div class="col-md-2">
                                                     <div class="form-group form-md-line-input">
                                                         <input type="date" class="form-control " name="bday_tfd" id="TFD">
                                                         <label for="TFD">TFD</label>
@@ -68,7 +81,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-4">
+                                                <div class="col-md-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <select required class="form-control edited" id="category" name="category">
                                                             <option value="" selected>Select category</option>
@@ -79,21 +92,29 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-4">
+                                                <div class="col-md-2">
+                                                    <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control " name="season" id="">
+                                                        <label for="">Season</label>
+                                                        <span class="help-block">Please enter season</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" name="style" id="Style">
                                                         <label for="Style">Style</label>
                                                         <span class="help-block">Please enter style</span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" name="fabric" id="Fabric">
                                                         <label for="Fabric">Fabric</label>
                                                         <span class="help-block">Please enter Fabric</span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" name="color" id="Color">
                                                         <label for="Color">Color</label>
@@ -101,26 +122,20 @@
                                                     </div>
                                                 </div>
 												
-											<div class="col-md-4 d-none">
-												<div class="form-group form-md-line-input form-md-floating-label">
-													<input type="text" id="demo" class="form-control" name="company_no" rows="3" value="company_no" readonly>
-													<label for="Description">Order ID</label>
-												</div>
-											</div>
-											 <div class="col-md-4">
+											
+											    <div class="col-md-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <select required class="form-control edited" id="category" name="running_steps">
-                                                            <option value="" selected>Running Steps</option>
-                                                            <option value="0">Yarn</option>
-                                                            <option value="1">Knit</option>
-                                                            <option value="2">Dyeing</option>
-															<option value="3">Cutting</option>
-                                                            <option value="4">Print</option>
-                                                            <option value="5">Embo</option>
-															<option value="6">Sewing</option>
-															<option value="7">Wash</option>
-                                                            <option value="8">Pack</option>
-                                                        </select>
+                                                        <input type="number" class="form-control" name="quantity" id="Quantity">
+                                                        <label for="Quantity">Quantity</label>
+                                                        <span class="help-block">Please enter quantity</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="date" class="form-control " name="bday_dd" id="delevery_date">
+                                                        <label for="delevery_date">Delivery Date</label>
+                                                        <span class="help-block">Please enter delivery date</span>
                                                     </div>
                                                 </div>
 														
@@ -129,21 +144,41 @@
                                             <div class="row">
                                                 <div class="col-md-8">
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <!-- <div class="col-md-12">
                                                             <div class="form-group form-md-line-input form-md-floating-label">
-                                                                <input type="number" class="form-control" name="quantity" id="Quantity">
-                                                                <label for="Quantity">Quantity</label>
-                                                                <span class="help-block">Please enter quantity</span>
+                                                                <select required class="form-control edited" id="category" name="running_steps">
+                                                                    <option value="" selected>Running Steps</option>
+                                                                    <option value="0">Yarn</option>
+                                                                    <option value="1">Knit</option>
+                                                                    <option value="2">Dyeing</option>
+                                                                    <option value="3">Cutting</option>
+                                                                    <option value="4">Print</option>
+                                                                    <option value="5">Embo</option>
+                                                                    <option value="6">Sewing</option>
+                                                                    <option value="7">Wash</option>
+                                                                    <option value="8">Pack</option>
+                                                                </select>
+                                                            </div>
+                                                        </div> -->
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label">Running Steps</label>
+                                                                <div class="">
+                                                                    <select class="selectpicker form-control"  multiple="multiple" title="Select Running Steps" name="running_steps[]">
+                                                                        <option value="yarn">Yarn</option>
+                                                                        <option value="knit">Knit</option>
+                                                                        <option value="dyeing">Dyeing</option>
+                                                                        <option value="cutting">Cutting</option>
+                                                                        <option value="print">Print</option>
+                                                                        <option value="embo">Embo</option>
+                                                                        <option value="sewing">Sewing</option>
+                                                                        <option value="wash">Wash</option>
+                                                                        <option value="pack">Pack</option>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
-        
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-md-line-input">
-                                                                <input type="text" class="form-control " name="bday_dd" id="delevery_date">
-                                                                <label for="delevery_date">Delivery Date</label>
-                                                                <span class="help-block">Please enter delivery date</span>
-                                                            </div>
-                                                        </div>
+                                                        
 
                                                         <div class="col-md-6">
                                                             <div class="form-group form-md-line-input form-md-floating-label">
@@ -183,6 +218,60 @@
                                                 </div>
                                                 
                                             </div>
+
+                                            <hr>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h4 class="font-green mt-20 mb-20"><b>Approval Status</b></h4>  
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="date" class="form-control " name="will_send_date" id="">
+                                                        <label for="">Will be send</label>
+                                                        <span class="help-block">Please enter Will be send</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="date" class="form-control " name="Sent_date" id="">
+                                                        <label for="">Sent Date</label>
+                                                        <span class="help-block">Please enter Sent Date</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" name="will_comment" id="">
+                                                        <label for="">Comments</label>
+                                                        <span class="help-block">Please enter Comments</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="date" class="form-control " name="revised_date" id="">
+                                                        <label for="">Revised Date</label>
+                                                        <span class="help-block">Please enter Revised Date</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group form-md-line-input">
+                                                        <input type="date" class="form-control " name="revised_sent_date" id="">
+                                                        <label for="">Sent Date</label>
+                                                        <span class="help-block">Please enter Sent Date</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                <div class="form-group form-md-line-input form-md-floating-label">
+                                                        <input type="text" class="form-control" name="revised_comment" id="">
+                                                        <label for="">Comments</label>
+                                                        <span class="help-block">Please enter Comments</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+
+                                            <hr>
 
                                             <br><br>
 											

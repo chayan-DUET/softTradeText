@@ -31,6 +31,7 @@
         <link href="{{asset('public/admin/')}}/assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
         <link href="{{asset('public/admin/')}}/assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
         <link href="{{asset('public/admin/')}}/assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
+        <link href="{{asset('public/admin/')}}/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="{{asset('public/admin/')}}/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
@@ -693,6 +694,7 @@
         <script src="{{asset('public/admin/')}}/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
         <script src="{{asset('public/admin/')}}/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
         <script src="{{asset('public/admin/')}}/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+        <script src="{{asset('public/admin/')}}/assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
         <script src="{{asset('public/admin/')}}/assets/pages/scripts/table-datatables-buttons.min.js" type="text/javascript"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		
@@ -701,6 +703,8 @@
 				$(".datepicker").datepicker({
 					dateFormat: 'dd-mm-yy'
 				});
+
+                $('.selectpicker').selectpicker();
 			});
 		</script>
 		<!-- END PAGE LEVEL PLUGINS product list -->
