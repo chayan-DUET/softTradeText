@@ -148,6 +148,50 @@
 				<?php } else{?>
 				<li><a class=" glyphicon glyphicon-lock" style="float: right;margin:auto;top:-78px;right:-64px;    color: #fda30e; " href="{{URL::to('/loging-check')}}">Login</a></li>
 				<?php }?>
+				
+				
+				
+				
+				
+				  <li class="nav-item">
+                            <a href="/softTrade" class="nav-link nav-toggle">
+                                <i class="icon-puzzle"></i>
+                                <span class="title">Order</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+					
+						
+                            <ul class="sub-menu">
+							@foreach($products as $products)
+                                <li class="nav-item start active open">
+                                    <a href="{{url('/add-product')}}" class="nav-link ">
+                                        <i class="icon-bar-chart"></i>
+                                        <span class="title">Add Order{{$products->factory_name}} </span>
+									<ul><li>	{{$products->category==0?'boys':'girl'}}</li></ul>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+							     @endforeach
+									@foreach($publishproducts as $publishproducts)
+                                <li class="nav-item start ">
+                                    <a href="{{url('/show-product')}}" class="nav-link ">
+                                        <i class="icon-bulb"></i>
+                                        <span class="title">Order List {{$publishproducts->company_name}} </span>
+                                        <span class="badge badge-success">1</span>
+                                    </a>
+                                </li>
+									@endforeach
+                            </ul>
+                        </li>
+			
+			<?php
+$number = rand(100,100000);
+$t=time();
+$random = $number.''.$t;
+
+echo $random;
+?>
                     </ul>
 					
                     <!-- END SIDEBAR MENU -->

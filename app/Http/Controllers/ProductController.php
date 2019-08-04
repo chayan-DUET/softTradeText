@@ -103,7 +103,7 @@ class ProductController extends Controller
 		$product->revised_date = $request->revised_date;
 		$product->revised_sent_date = $request->revised_sent_date;
 		$product->revised_comment = $request->revised_comment;
-		
+		//dd($product);
         //$product->save();
 		  if($product->save()){
             $user = User::all();

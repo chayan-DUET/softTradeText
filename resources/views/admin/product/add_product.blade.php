@@ -387,14 +387,14 @@
             <!-- END CONTENT -->
 			<script>
 
-var number = 0;
-var digits = '';
+		var number = 0;
+		var digits = '';
 
-for (i = 0; i < 3; i++) {
-    number = Math.floor(Math.random() * 10);
-    digits = digits + number.toString();
-}
-document.getElementById("demo").value = digits;
-</script>
+		for (i = 0; i < 3; i++) {
+			number = Math.floor(Math.random() * 10);
+			digits = digits + number.toString();
+		}
+		document.getElementById("demo").value = digits;
+		</script>
 
 				@endsection
