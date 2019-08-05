@@ -696,17 +696,8 @@
         <script src="{{asset('public/admin/')}}/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
         <script src="{{asset('public/admin/')}}/assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
         <script src="{{asset('public/admin/')}}/assets/pages/scripts/table-datatables-buttons.min.js" type="text/javascript"></script>
+        <script src="{{asset('public/admin/')}}/assets/global/scripts/custom.js" type="text/javascript"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		
-		<script>
-			$(function() {
-				$(".datepicker").datepicker({
-					dateFormat: 'dd-mm-yy'
-				});
-
-                $('.selectpicker').selectpicker();
-			});
-		</script>
 		<!-- END PAGE LEVEL PLUGINS product list -->
     </body>
 

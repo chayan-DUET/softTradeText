@@ -65,6 +65,60 @@
                                 </li>
                             </ul>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="/softTrade" class="nav-link nav-toggle">
+                                <i class="icon-puzzle"></i>
+                                <span class="title">Order</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+					
+							
+                            <ul class="sub-menu">
+                                <li class="nav-item start active open">
+                                    <a href="{{url('/add-product')}}" class="nav-link ">
+                                        <i class="icon-bar-chart"></i>
+                                        <span class="title">Add Order</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
+                                    <a href="/softTrade" class="nav-link nav-toggle">
+                                        <i class="icon-puzzle"></i>
+                                        <span class="title">Order List</span>
+                                        <span class="selected"></span>
+                                        <span class="arrow"></span>
+                                    </a>
+
+                                    <ul class="sub-menu">
+                                        <li class="nav-item">
+                                            <a href="javascript:;" class="nav-link nav-toggle">
+                                                <span class="title">LB</span>
+                                                <span class="selected"></span>
+                                                <span class="arrow"></span>
+                                            </a>
+
+                                            <ul class="sub-menu">
+                                                <li class="nav-item">
+                                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                                        <span class="title">SS-2020</span>
+                                                        <span class="selected"></span>
+                                                        <span class="arrow"></span>
+                                                    </a>   
+
+                                                    <ul class="sub-menu">
+                                                        <li class="nav-item"><a href="#" class="nav-link">Boys</a></li>
+                                                        <li class="nav-item"><a href="#" class="nav-link">Girls</a></li>
+                                                        <li class="nav-item"><a href="#" class="nav-link">Kids</a></li>
+                                                    </ul> 
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
 						
 						<li class="nav-item">
                             <a href="/softTrade/home" class="nav-link nav-toggle">
@@ -163,16 +217,25 @@
 					
 						
                             <ul class="sub-menu">
-							@foreach($products as $products)
+							
                                 <li class="nav-item start active open">
-                                    <a href="{{url('/add-product')}}" class="nav-link ">
+                                    <a href="{{url('/show-product')}}" class="nav-link ">
                                         <i class="icon-bar-chart"></i>
-                                        <span class="title">Add Order{{$products->factory_name}} </span>
-									<ul><li>	{{$products->category==0?'boys':'girl'}}</li></ul>
+										@foreach($products as $products)
+                                        <span class="title">Order List <br>{{$products->factory_name}} </span>
+										
+									<ul><li class="nav-item start active open">{{$products->category==0?'boys':'girl'}}</li>
+									<li class="nav-item start active open">	{{$products->season}}</li>
+									<li class="nav-item start active open">	{{$products->comp_sname}}</li>
+									<li class="nav-item start active open">	{{$products->company_name}}
+									
+									</li>
+									</ul>
+									 @endforeach
                                         <span class="selected"></span>
                                     </a>
                                 </li>
-							     @endforeach
+							    
 									@foreach($publishproducts as $publishproducts)
                                 <li class="nav-item start ">
                                     <a href="{{url('/show-product')}}" class="nav-link ">
@@ -183,6 +246,8 @@
                                 </li>
 									@endforeach
                             </ul>
+							
+							
                         </li>
 			
 			<?php

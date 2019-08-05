@@ -160,7 +160,22 @@
                                                                 </select>
                                                             </div>
                                                         </div> -->
-                                                        <div class="col-md-12">
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                <textarea class="form-control" name="description" rows="3"></textarea>
+                                                                <label for="Description">Description</label>
+                                                            </div>
+                                                        </div>
+        
+                                                        <div class="col-md-6">
+                                                            <div class="form-group form-md-line-input form-md-floating-label">
+                                                                <textarea class="form-control" name="remark" rows="3"></textarea>
+                                                                <label for="Remark">Remark</label>
+                                                            </div>
+                                                        </div>
+														
+														<div class="col-md-12">
                                                             <div class="form-group">
                                                                 <label class="control-label">Running Steps</label>
                                                                 <div class="">
@@ -176,21 +191,6 @@
                                                                         <option value="pack">Pack</option>
                                                                     </select>
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        
-
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                <textarea class="form-control" name="description" rows="3"></textarea>
-                                                                <label for="Description">Description</label>
-                                                            </div>
-                                                        </div>
-        
-                                                        <div class="col-md-6">
-                                                            <div class="form-group form-md-line-input form-md-floating-label">
-                                                                <textarea class="form-control" name="remark" rows="3"></textarea>
-                                                                <label for="Remark">Remark</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -221,7 +221,7 @@
 
                                             <hr>
 
-                                            <div class="row">
+                                       <!--     <div class="row">
                                                 <div class="col-md-12">
                                                     <h4 class="font-green mt-20 mb-20"><b>Approval Status</b></h4>  
                                                 </div>
@@ -262,12 +262,144 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                <div class="form-group form-md-line-input form-md-floating-label">
+													<div class="form-group form-md-line-input form-md-floating-label">
                                                         <input type="text" class="form-control" name="revised_comment" id="">
                                                         <label for="">Comments</label>
                                                         <span class="help-block">Please enter Comments</span>
                                                     </div>
-                                                </div>
+                                                </div> -->
+												
+												
+												<div class="col-md-12">
+													<div class="table-responsive">
+														<table class="table table-bordered table-hover table-striped">
+															<thead>
+																<tr>
+																	<th scope="col"></th>
+																	<th scope="col">L/Dips</th>
+																	<th scope="col">Strike Off</th>
+																	<th scope="col">Size Set</th>
+																	<th scope="col">PP Sample</th>
+																	<th scope="col">PS Sample</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<th scope="row">Will be send</th>
+																	<td>
+																		<input type="date" name ="will_send_date" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="will_send_date_strike" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="will_send_date_size" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="will_send_date_pp" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="will_send_date_ps" id="" class="form-control">
+																	</td>
+																</tr>
+																
+																<tr>
+																	<th scope="row">Sent on Date</th>
+																	<td>
+																		<input type="date" name ="Sent_date" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="Sent_date_strike" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="Sent_date_size" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="Sent_date_pp" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="Sent_date_ps" id="" class="form-control">
+																	</td>
+																</tr>
+																
+																<tr>
+																	<th scope="row">Comments</th>
+																	<td>
+																		<input type="text" name ="will_comment" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="text" name ="will_comment_strike" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="text" name ="will_comment_size" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="text" name ="will_comment_pp" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="text" name ="will_comment_ps" id="" class="form-control">
+																	</td>
+																</tr>
+																<tr>
+																	<th scope="row">Revised Send</th>
+																	<td>
+																		<input type="date" name ="revised_date" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="revised_date_strike" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="revised_date_size" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="revised_date_pp" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="revised_date_ps" id="" class="form-control">
+																	</td>
+																</tr>
+																
+																<tr>
+																	<th scope="row">Sent on Date</th>
+																	<td>
+																		<input type="date" name ="revised_sent_date" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="revised_sent_date_strike" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="revised_sent_date_size" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="revised_sent_date_pp" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="date" name ="revised_sent_date_ps" id="" class="form-control">
+																	</td>
+																</tr>
+																
+																<tr>
+																	<th scope="row">Comments</th>
+																	<td>
+																		<input type="text" name ="revised_comment" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="text" name ="revised_comment_strike" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="text" name ="revised_comment_size" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="text" name ="revised_comment_pp" id="" class="form-control">
+																	</td>
+																	<td>
+																		<input type="text" name ="revised_comment_ps" id="" class="form-control">
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
                                             </div>
                                             
 
@@ -299,6 +431,16 @@
                                                             <span class="box"></span> Knit </label>
                                                     </div>
                                                 </div>
+                                                 <div class="col-md-2">
+                                                    <div class="md-checkbox mb-15">
+                                                        <input type="checkbox" name="steps[]" value="fbric" id="Fbric" class="md-check">
+                                                        <label for="Fbric">
+                                                            <span></span>
+                                                            <span class="check"></span>
+                                                            <span class="box"></span> Fabric </label>
+                                                    </div>
+                                                </div>
+
 
                                                 <div class="col-md-2">
                                                     <div class="md-checkbox mb-15">

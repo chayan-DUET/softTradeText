@@ -98,11 +98,36 @@ class ProductController extends Controller
          $product->running_steps = implode(",", $request->running_steps);
 		$product->bday_dd = $request->bday_dd;
 		$product->will_send_date = $request->will_send_date;
+		$product->will_send_date_strike = $request->will_send_date_strike;
+		$product->will_send_date_size = $request->will_send_date_size;
+		$product->will_send_date_pp = $request->will_send_date_pp;
+		$product->will_send_date_ps = $request->will_send_date_ps;
 		$product->Sent_date = $request->Sent_date;
+		$product->Sent_date_strike = $request->Sent_date_strike;
+		$product->Sent_date_size = $request->Sent_date_size;
+		$product->Sent_date_pp = $request->Sent_date_pp;
+		$product->Sent_date_ps = $request->Sent_date_ps;
 		$product->will_comment = $request->will_comment;
+		$product->will_comment_strike = $request->will_comment_strike;
+		$product->will_comment_size = $request->will_comment_size;
+		$product->will_comment_pp = $request->will_comment_pp;
+		$product->will_comment_ps = $request->will_comment_ps;
 		$product->revised_date = $request->revised_date;
+		$product->revised_date_strike = $request->revised_date_strike;
+		$product->revised_date_size = $request->revised_date_size;
+		$product->revised_date_pp = $request->revised_date_pp;
+		$product->revised_date_ps = $request->revised_date_ps;
+		
 		$product->revised_sent_date = $request->revised_sent_date;
+		$product->revised_sent_date_strike = $request->revised_sent_date_strike;
+		$product->revised_sent_date_size = $request->revised_sent_date_size;
+		$product->revised_sent_date_pp = $request->revised_sent_date_pp;
+		$product->revised_sent_date_ps = $request->revised_sent_date_ps;
 		$product->revised_comment = $request->revised_comment;
+		$product->revised_comment_strike = $request->revised_comment_strike;
+		$product->revised_comment_size = $request->revised_comment_size;
+		$product->revised_comment_pp = $request->revised_comment_pp;
+		$product->revised_comment_ps = $request->revised_comment_ps;
 		//dd($product);
         //$product->save();
 		  if($product->save()){
