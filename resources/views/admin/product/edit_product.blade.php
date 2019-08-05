@@ -366,13 +366,14 @@
                                             <hr>
 
                                             <br><br>
-											
+												<?php if($steps){?>
                                             <div class="row steps_update">
                                                 <div class="col-md-12">
                                                     <h4 class="font-green mt-20 mb-20"><b>Update Steps</b></h4>  
                                                 </div>
 
                                                 <div class="col-md-4">
+												<?php if( in_array('yarn', $steps)){?>
 
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
@@ -425,6 +426,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
+													<?php }?>
                                                 </div>
 
 
@@ -868,6 +870,7 @@
                                                     </div>
                                                 </div>
                                             </div> 
+											<?php }?>
                                         </div>
                                         <div class="form-actions noborder text-right">
                                             <button type="submit" class="btn blue">Submit</button>
