@@ -266,113 +266,113 @@
 																<tr>
 																	<th scope="row">Will be send</th>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->will_send_date}}" id="" class="form-control">
+																		<input type="text" name ="will_send_date" value="{{$productById->will_send_date}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->will_send_date_strike}}" id="" class="form-control">
+																		<input type="text" name ="will_send_date_strike" value="{{$productById->will_send_date_strike}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->will_send_date_size}}" id="" class="form-control">
+																		<input type="text" name ="will_send_date_size" value="{{$productById->will_send_date_size}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->will_send_date_pp}}" id="" class="form-control">
+																		<input type="text" name ="will_send_date_pp" value="{{$productById->will_send_date_pp}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->will_send_date_ps}}" id="" class="form-control">
+																		<input type="text" name ="will_send_date_ps" value="{{$productById->will_send_date_ps}}" id="" class="form-control">
 																	</td>
 																</tr>
 																
 																<tr>
 																	<th scope="row">Sent on Date</th>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->Sent_date}}" id="" class="form-control">
+																		<input type="text" name ="Sent_date" value="{{$productById->Sent_date}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->Sent_date_strike}}" id="" class="form-control">
+																		<input type="text" name ="Sent_date_strike" value="{{$productById->Sent_date_strike}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->Sent_date_size}}" id="" class="form-control">
+																		<input type="text" name ="Sent_date_size" value="{{$productById->Sent_date_size}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->Sent_date_pp}}" id="" class="form-control">
+																		<input type="text" name ="Sent_date_pp" value="{{$productById->Sent_date_pp}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->Sent_date_ps}}" id="" class="form-control">
+																		<input type="text" name ="Sent_date_ps" value="{{$productById->Sent_date_ps}}" id="" class="form-control">
 																	</td>
 																</tr>
 																
 																<tr>
 																	<th scope="row">Comments</th>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->will_comment}}" id="" class="form-control">
+																		<input type="text" name ="will_comment" value="{{$productById->will_comment}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->will_comment_strike}}" id="" class="form-control">
+																		<input type="text" name ="will_comment_strike" value="{{$productById->will_comment_strike}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->will_comment_size}}" id="" class="form-control">
+																		<input type="text" name ="will_comment_size" value="{{$productById->will_comment_size}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->will_comment_pp}}" id="" class="form-control">
+																		<input type="text" name ="will_comment_pp" value="{{$productById->will_comment_pp}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->will_comment_ps}}" id="" class="form-control">
+																		<input type="text" name ="will_comment_ps" value="{{$productById->will_comment_ps}}" id="" class="form-control">
 																	</td>
 																</tr>
 																<tr>
 																	<th scope="row">Revised Send</th>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_date}}" id="" class="form-control">
+																		<input type="text" name ="revised_date" value="{{$productById->revised_date}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_date_strike}}" id="" class="form-control">
+																		<input type="text" name ="revised_date_strike" value="{{$productById->revised_date_strike}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_date_size}}" id="" class="form-control">
+																		<input type="text" name ="revised_date_size" value="{{$productById->revised_date_size}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_date_pp}}" id="" class="form-control">
+																		<input type="text" name ="revised_date_pp" value="{{$productById->revised_date_pp}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_date_ps}}" id="" class="form-control">
+																		<input type="text" name ="revised_date_ps" value="{{$productById->revised_date_ps}}" id="" class="form-control">
 																	</td>
 																</tr>
 																
 																<tr>
 																	<th scope="row">Sent on Date</th>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_sent_date}}" id="" class="form-control">
+																		<input type="text" name ="revised_sent_date" value="{{$productById->revised_sent_date}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_sent_date_strike}}" id="" class="form-control">
+																		<input type="text" name ="revised_sent_date_strike" value="{{$productById->revised_sent_date_strike}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_sent_date_size}}" id="" class="form-control">
+																		<input type="text" name ="revised_sent_date_size" value="{{$productById->revised_sent_date_size}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_sent_date_pp}}" id="" class="form-control">
+																		<input type="text" name ="revised_sent_date_pp" value="{{$productById->revised_sent_date_pp}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_sent_date_ps}}" id="" class="form-control">
+																		<input type="text" name ="revised_sent_date_ps" value="{{$productById->revised_sent_date_ps}}" id="" class="form-control">
 																	</td>
 																</tr>
 																
 																<tr>
 																	<th scope="row">Comments</th>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_comment}}" id="" class="form-control">
+																		<input type="text" name ="revised_comment" value="{{$productById->revised_comment}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_comment_strike}}" id="" class="form-control">
+																		<input type="text" name ="revised_comment_strike" value="{{$productById->revised_comment_strike}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_comment_size}}" id="" class="form-control">
+																		<input type="text" name ="revised_comment_size" value="{{$productById->revised_comment_size}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_comment_pp}}" id="" class="form-control">
+																		<input type="text" name ="revised_comment_pp" value="{{$productById->revised_comment_pp}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" value="{{$productById->revised_comment_ps}}" id="" class="form-control">
+																		<input type="text" name ="revised_comment_ps" value="{{$productById->revised_comment_ps}}" id="" class="form-control">
 																	</td>
 																</tr>
 															</tbody>
