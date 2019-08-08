@@ -60,7 +60,7 @@
                                             <div class="row">
                                             <div class="col-md-2 d-none">
 												<div class="form-group form-md-line-input form-md-floating-label">
-													<input type="text" id="demo" class="form-control" name="company_no" rows="3" value="company_no" readonly>
+													<input type="text" id="demo" class="form-control" name="company_no" rows="3" value="{{$productById->company_no}}" readonly>
 													<label for="Description">Order ID</label>
 												</div>
 											</div>
@@ -84,7 +84,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control" name="comp_sname" id="">
+                                                        <input type="text" class="form-control" value="{{$productById->comp_sname}}" name="comp_sname" id="">
                                                         <label for="">Company ID</label>
                                                         <span class="help-block">Please enter Company ID</span>
                                                     </div>
@@ -111,7 +111,7 @@
 
                                                 <div class="col-md-2">
                                                     <div class="form-group form-md-line-input form-md-floating-label">
-                                                        <input type="text" class="form-control " name="season" id="">
+                                                        <input type="text" class="form-control " value="{{$productById->season}}" name="season" id="">
                                                         <label for="">Season</label>
                                                         <span class="help-block">Please enter season</span>
                                                     </div>
@@ -150,7 +150,7 @@
 
                                                 <div class="col-md-2">
                                                     <div class="form-group form-md-line-input">
-                                                        <input type="date" class="form-control " name="bday_dd" id="delevery_date">
+                                                        <input type="text" class="form-control " name="bday_dd" value="{{$productById->bday_dd}}" id="delevery_date">
                                                         <label for="delevery_date">Delivery Date</label>
                                                         <span class="help-block">Please enter delivery date</span>
                                                     </div>
@@ -163,14 +163,14 @@
                                                     <div class="row">
 														<div class="col-md-6">
                                                             <div class="form-group form-md-line-input form-md-floating-label">
-                                                                <textarea class="form-control" name="description" rows="3"></textarea>
+                                                                <textarea class="form-control" name="description" rows="3">{{$productById->description}}</textarea>
                                                                 <label for="Description">Description</label>
                                                             </div>
                                                         </div>
         
                                                         <div class="col-md-6">
                                                             <div class="form-group form-md-line-input form-md-floating-label">
-                                                                <textarea class="form-control" name="remark" rows="3"></textarea>
+                                                                <textarea class="form-control" name="remark" rows="3">{{$productById->remark}}</textarea>
                                                                 <label for="Remark">Remark</label>
                                                             </div>
                                                         </div>
@@ -194,25 +194,26 @@
                                                             <div class="form-group">
                                                                 <label class="control-label">Running Steps</label>
                                                                 <div class="">
-                                                                   <select required class="form-control edited" id="category1" name="running_steps">
-																	<option value="" selected>Running Steps</option>
-																	<option value="0">Yarn</option>
-																	<option value="1">Knit</option>
-																	<option value="2">Dyeing</option>
-																	<option value="3">Cutting</option>
-																	<option value="4">Print</option>
-																	<option value="5">Embo</option>
-																	<option value="6">Sewing</option>
-																	<option value="7">Wash</option>
-																	<option value="8">Pack</option>
-																</select>
+                                                                    <select class="selectpicker form-control"  multiple="multiple" title="Select Running Steps" name="running_steps[]">
+                                                                        <option value="yarn" @if(in_array("yarn", $running_steps))selected="selected"@endif>Yarn</option>
+                                                                         <option value="knit" @if(in_array("knit", $running_steps))selected="selected"@endif>Knit</option>
+																	    <option value="dyeing" @if(in_array("dyeing", $running_steps))selected="selected"@endif>Dyeing</option>
+																		  <option value="cutting" @if(in_array("cutting", $running_steps))selected="selected"@endif>Cutting</option>
+																		  <option value="print" @if(in_array("print", $running_steps))selected="selected"@endif>Print</option>
+																		  <option value="embo" @if(in_array("embo", $running_steps))selected="selected"@endif>Embo</option>
+																		  <option value="sewing" @if(in_array("sewing", $running_steps))selected="selected"@endif>Sewing</option>
+																		  <option value="wash" @if(in_array("wash", $running_steps))selected="selected"@endif>Wash</option>
+																		    <option value="pack" @if(in_array("pack", $running_steps))selected="selected"@endif>Pack</option>
+																		
+																		
+                                                                    </select>
                                                                 </div>
                                                             </div>
                                                         </div>
 														
 														<div class="col-md-6">
                                                             <div class="form-group form-md-line-input form-md-floating-label">
-                                                                <textarea class="form-control" name="last_update" rows="3"></textarea>
+                                                                <textarea class="form-control" name="update_order" rows="3">{{$productById->update_order}}</textarea>
                                                                 <label for="last_update">Last Update</label>
                                                             </div>
                                                         </div>
@@ -224,7 +225,7 @@
                                                         <div class="row">
                                                             <div class="col-md-5">
                                                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"> 
-                                                                    <img src="{{asset('public/admin/')}}/assets/layouts/layout/img/download.png"/> 
+                                                                   <img src="{{asset('public/productImage/'.$productById->image)}}" alt="" height="100" width="100"> 
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-7 text-left">
@@ -232,7 +233,7 @@
                                                                     <span class="btn red btn-outline btn-file">
                                                                         <span class="fileinput-new"> Select image </span>
                                                                         <span class="fileinput-exists"> Change </span>
-                                                                        <input type="file" name="image" accept="image/*"> </span>
+                                                                       <input type="file" name="image" class="custom-file-input" value="{{$productById->image}}">
                                                                     <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
                                                                 </div>
                                                             </div>
@@ -265,113 +266,113 @@
 																<tr>
 																	<th scope="row">Will be send</th>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->will_send_date}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->will_send_date_strike}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->will_send_date_size}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->will_send_date_pp}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->will_send_date_ps}}" id="" class="form-control">
 																	</td>
 																</tr>
 																
 																<tr>
 																	<th scope="row">Sent on Date</th>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->Sent_date}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->Sent_date_strike}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->Sent_date_size}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->Sent_date_pp}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->Sent_date_ps}}" id="" class="form-control">
 																	</td>
 																</tr>
 																
 																<tr>
 																	<th scope="row">Comments</th>
 																	<td>
-																		<input type="text" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->will_comment}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->will_comment_strike}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->will_comment_size}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->will_comment_pp}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->will_comment_ps}}" id="" class="form-control">
 																	</td>
 																</tr>
 																<tr>
 																	<th scope="row">Revised Send</th>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_date}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_date_strike}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_date_size}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_date_pp}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_date_ps}}" id="" class="form-control">
 																	</td>
 																</tr>
 																
 																<tr>
 																	<th scope="row">Sent on Date</th>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_sent_date}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_sent_date_strike}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_sent_date_size}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_sent_date_pp}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="date" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_sent_date_ps}}" id="" class="form-control">
 																	</td>
 																</tr>
 																
 																<tr>
 																	<th scope="row">Comments</th>
 																	<td>
-																		<input type="text" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_comment}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_comment_strike}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_comment_size}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_comment_pp}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="" id="" class="form-control">
+																		<input type="text" name ="" value="{{$productById->revised_comment_ps}}" id="" class="form-control">
 																	</td>
 																</tr>
 															</tbody>
@@ -409,7 +410,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">In progress</label>
                                                                         <div class="input-group">
-                                                                            <input type="number" class="form-control" placeholder="Enter Qty" name="quantity" value="{{$productById->in_progress}}" id="Quantity" aria-describedby="in_progress_addon">
+                                                                            <input type="number" class="form-control" placeholder="Enter Qty" name="in_progress" value="{{$productById->in_progress}}" id="Quantity" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">KG</span>
                                                                         </div>
                                                                     </div>
@@ -419,7 +420,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Done</label>
                                                                         <div class="input-group">
-                                                                            <input type="number" class="form-control" placeholder="Enter Qty"  value="{{$productById->done_qty}}"  aria-describedby="in_progress_addon">
+                                                                            <input type="number" class="form-control" placeholder="Enter Qty" name="done_qty"  value="{{$productById->done_qty}}"  aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">KG</span>
                                                                         </div>
                                                                     </div>
@@ -429,7 +430,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Balance</label>
                                                                         <div class="input-group">
-                                                                            <input type="number" class="form-control" placeholder="Enter Qty"  value="{{$blnce}}"  aria-describedby="in_progress_addon">
+                                                                            <input type="number" class="form-control" placeholder="Enter Qty" name="balance_qty"  value="{{$blnce}}"  aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">KG</span>
                                                                         </div>
                                                                     </div>
@@ -466,7 +467,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">In progress</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->in_progressknit}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="in_progressknit" value="{{$productById->in_progressknit}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">KG</span>
                                                                         </div>
                                                                     </div>
@@ -476,7 +477,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Done</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->done_qtyknit}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="done_qtyknit" value="{{$productById->done_qtyknit}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">KG</span>
                                                                         </div>
                                                                     </div>
@@ -486,7 +487,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Balance</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$blnceKnit }}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="balance_qtyknit" value="{{$blnceKnit }}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">KG</span>
                                                                         </div>
                                                                     </div>
@@ -521,7 +522,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">In progress</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->in_progressfabric}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="in_progressfabric" value="{{$productById->in_progressfabric}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">KG</span>
                                                                         </div>
                                                                     </div>
@@ -531,7 +532,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Done</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->done_qtyfabric}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="done_qtyfabric" value="{{$productById->done_qtyfabric}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">KG</span>
                                                                         </div>
                                                                     </div>
@@ -541,7 +542,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Balance</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$blnceFabric }}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="balance_qtyfabric" value="{{$blnceFabric }}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">KG</span>
                                                                         </div>
                                                                     </div>
@@ -577,7 +578,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">In progress</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->in_progressdyeing}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="in_progressdyeing" value="{{$productById->in_progressdyeing}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">KG</span>
                                                                         </div>
                                                                     </div>
@@ -587,7 +588,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Done</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->done_qtydyeing}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="done_qtydyeing" value="{{$productById->done_qtydyeing}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">KG</span>
                                                                         </div>
                                                                     </div>
@@ -597,7 +598,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Balance</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$blnceDyeing}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="balance_qtydyeing" value="{{$blnceDyeing}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">KG</span>
                                                                         </div>
                                                                     </div>
@@ -633,7 +634,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">In progress</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->in_progresscutting}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="in_progresscutting" value="{{$productById->in_progresscutting}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -643,7 +644,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Done</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->done_qtycutting}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="done_qtycutting" value="{{$productById->done_qtycutting}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -653,7 +654,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Balance</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$blnceCutting}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="balance_qtycutting" value="{{$blnceCutting}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -689,7 +690,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">In progress</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->in_progressprint}}"  aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="in_progressprint" value="{{$productById->in_progressprint}}"  aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -699,7 +700,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Done</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->done_qtyprint}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="done_qtyprint" value="{{$productById->done_qtyprint}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -709,7 +710,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Balance</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$blncePrint}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="balance_qtyprint" value="{{$blncePrint}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -745,7 +746,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">In progress</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->in_progressembo}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="in_progressembo" value="{{$productById->in_progressembo}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -755,7 +756,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Done</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->done_qtyembo}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="done_qtyembo" value="{{$productById->done_qtyembo}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -765,7 +766,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Balance</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$blnceEmbo}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="balance_qtyembo" value="{{$blnceEmbo}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -801,7 +802,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">In progress</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->in_progresssewing}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="in_progresssewing" value="{{$productById->in_progresssewing}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -811,7 +812,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Done</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->done_qtysewing}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="done_qtysewing" value="{{$productById->done_qtysewing}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -821,7 +822,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Balance</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$blnceSewing}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="balance_qtysewing" value="{{$blnceSewing}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -857,7 +858,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">In progress</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->in_progresswash}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="in_progresswash" value="{{$productById->in_progresswash}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -867,7 +868,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Done</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->done_qtywash}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="done_qtywash" value="{{$productById->done_qtywash}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -877,7 +878,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Balance</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$blnceWash}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="balance_qtywash" value="{{$blnceWash}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -913,7 +914,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">In progress</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->in_progresspack}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="in_progresspack" value="{{$productById->in_progresspack}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -923,7 +924,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Done</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$productById->done_qtypack}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="done_qtypack" value="{{$productById->done_qtypack}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>
@@ -933,7 +934,7 @@
                                                                     <div class="form-group">
                                                                         <label for="">Balance</label>
                                                                         <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter Qty" value="{{$blncePack}}" aria-describedby="in_progress_addon">
+                                                                            <input type="text" class="form-control" placeholder="Enter Qty" name="balance_qtypack" value="{{$blncePack}}" aria-describedby="in_progress_addon">
                                                                             <span class="input-group-addon" id="in_progress_addon">pc</span>
                                                                         </div>
                                                                     </div>

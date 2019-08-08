@@ -145,8 +145,9 @@ class ProductController extends Controller
 		Session::put('productBydd',$productById->bday_dd);
 		//dd(session()->get('productById'));
 		 $steps=explode(",", $productById->steps);
-		 
-          return view('admin.product.edit_product',['productById'=>$productById,'steps'=>$steps,'users'=>$users]);          
+		 $running_steps=explode(",", $productById->running_steps);
+		 //dd($running_steps);
+          return view('admin.product.edit_product',['productById'=>$productById,'steps'=>$steps,'users'=>$users,'running_steps'=>$running_steps]);          
 		 //return view('product.editProduct',['productById'=>$productById,'steps'=>$steps]);
 		//return view('product.editProduct');
 	}
@@ -179,14 +180,83 @@ class ProductController extends Controller
 		
 
         $product->color = $request->color;
-		$product->running_steps = $request->running_steps;
+		 $product->running_steps = implode(",", $request->running_steps);
 		$product->quantity = $request->quantity;
+		$product->comp_sname = $request->comp_sname;
+		$product->season = $request->season;
+		$product->update_order = $request->update_order;
 		$product->remark = $request->remark;
 		$product->factory_name = $request->factory_name;
 		$product->user_id = $request->company_name;
-		$product->update_order = $request->update_order;
-		$product->steps = implode(",", $request->steps);
+		//$product->update_order = $request->update_order;
+		if (!empty($steps)) {
+			 $product->steps = implode(',', $steps);
+		  } 
 		$product->bday_dd = $request->bday_dd;
+		$product->will_send_date = $request->will_send_date;
+		$product->will_send_date_strike = $request->will_send_date_strike;
+		$product->will_send_date_size = $request->will_send_date_size;
+		$product->will_send_date_pp = $request->will_send_date_pp;
+		$product->will_send_date_ps = $request->will_send_date_ps;
+		$product->Sent_date = $request->Sent_date;
+		$product->Sent_date_strike = $request->Sent_date_strike;
+		$product->Sent_date_size = $request->Sent_date_size;
+		$product->Sent_date_pp = $request->Sent_date_pp;
+		$product->Sent_date_ps = $request->Sent_date_ps;
+		$product->will_comment = $request->will_comment;
+		$product->will_comment_strike = $request->will_comment_strike;
+		$product->will_comment_size = $request->will_comment_size;
+		$product->will_comment_pp = $request->will_comment_pp;
+		$product->will_comment_ps = $request->will_comment_ps;
+		$product->revised_date = $request->revised_date;
+		$product->revised_date_strike = $request->revised_date_strike;
+		$product->revised_date_size = $request->revised_date_size;
+		$product->revised_date_pp = $request->revised_date_pp;
+		$product->revised_date_ps = $request->revised_date_ps;
+		
+		$product->revised_sent_date = $request->revised_sent_date;
+		$product->revised_sent_date_strike = $request->revised_sent_date_strike;
+		$product->revised_sent_date_size = $request->revised_sent_date_size;
+		$product->revised_sent_date_pp = $request->revised_sent_date_pp;
+		$product->revised_sent_date_ps = $request->revised_sent_date_ps;
+		$product->revised_comment = $request->revised_comment;
+		$product->revised_comment_strike = $request->revised_comment_strike;
+		$product->revised_comment_size = $request->revised_comment_size;
+		$product->revised_comment_pp = $request->revised_comment_pp;
+		$product->revised_comment_ps = $request->revised_comment_ps;
+		//
+		$product->in_progress = $request->in_progress;
+		$product->done_qty = $request->done_qty;
+		$product->balance_qty = $request->balance_qty;
+		
+		$product->in_progressknit = $request->in_progressknit;
+		$product->done_qtyknit = $request->done_qtyknit;
+		$product->balance_qtyknit = $request->balance_qtyknit;
+		$product->in_progressfabric = $request->in_progressfabric;
+		$product->done_qtyfabric = $request->done_qtyfabric;
+		$product->balance_qtyfabric = $request->balance_qtyfabric;
+		$product->in_progressdyeing = $request->in_progressdyeing;
+		$product->done_qtydyeing = $request->done_qtydyeing;
+		$product->balance_qtydyeing = $request->balance_qtydyeing;
+		$product->in_progresscutting = $request->in_progresscutting;
+		$product->done_qtycutting = $request->done_qtycutting;
+		$product->balance_qtycutting = $request->balance_qtycutting;
+		$product->in_progressprint = $request->in_progressprint;
+		$product->done_qtyprint = $request->done_qtyprint;
+		$product->balance_qtyprint = $request->balance_qtyprint;
+		$product->in_progressembo = $request->in_progressembo;
+		$product->done_qtyembo = $request->done_qtyembo;
+		$product->balance_qtyembo = $request->balance_qtyembo;
+		$product->in_progresssewing = $request->in_progresssewing;
+		$product->done_qtysewing = $request->done_qtysewing;
+		$product->balance_qtysewing = $request->balance_qtysewing;
+		$product->in_progresswash = $request->in_progresswash;
+		//
+		$product->done_qtywash = $request->done_qtywash;
+		$product->balance_qtywash = $request->balance_qtywash;
+		$product->in_progresspack = $request->in_progresspack;
+		$product->done_qtypack = $request->done_qtypack;
+		$product->balance_qtypack = $request->balance_qtypack;
 			Session::put('product',$request->quantity);
 		//dd(session()->get('product'));
         //$product->save();

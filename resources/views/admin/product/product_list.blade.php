@@ -73,7 +73,7 @@ session_start();
                                                 <th> Qty </th>
                                                 <th> Image </th>
                                                 <th> Decs. </th>
-                                                <th> Completed Step</th>
+                                                <th> Order Step</th>
                                                 <th> Running Step</th>
                                                 <th> DD </th>
                                                 <th> Remark </th>
