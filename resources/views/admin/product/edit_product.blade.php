@@ -390,9 +390,9 @@
                                                 <div class="col-md-12">
                                                     <h4 class="font-green mt-20 mb-20"><b>Update Steps</b></h4>  
                                                 </div>
-														
+												<?php if( in_array('yarn', $steps)){?>		
                                                 <div class="col-md-4">
-												<?php if( in_array('yarn', $steps)){?>
+												
 
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
@@ -445,12 +445,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-													<?php }?>
-                                                </div>
-
 												
+                                                </div>
+													<?php }?>
+												<?php   if( in_array('knit', $steps)){?>
                                                 <div class="col-md-4">
-													<?php   if( in_array('knit', $steps)){?>
+													
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <div class="md-checkbox">
@@ -502,10 +502,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-													<?php }?>
+													
                                                 </div>
-												 <div class="col-md-4">
+												<?php }?>
 													<?php   if( in_array('fbric', $steps)){?>
+												 <div class="col-md-4">
+												
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <div class="md-checkbox">
@@ -557,11 +559,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-													<?php }?>
-                                                </div>
 													
-                                                <div class="col-md-4">
+                                                </div>
+													<?php }?>
 													<?php   if( in_array('dying', $steps)){?>
+                                                <div class="col-md-4">
+													
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <div class="md-checkbox">
@@ -613,11 +616,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-													<?php }?>
+													
                                                 </div>
-
-                                                <div class="col-md-4">
+													<?php }?>
 													<?php   if( in_array('cutting', $steps)){?>
+                                                <div class="col-md-4">
+													
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <div class="md-checkbox">
@@ -669,11 +673,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-													<?php }?>
+													
                                                 </div>
-
+												<?php }?>
+												<?php   if( in_array('print', $steps)){?>
                                                 <div class="col-md-4">
-														<?php   if( in_array('print', $steps)){?>
+														
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <div class="md-checkbox">
@@ -725,11 +730,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-													<?php }?>
+													
                                                 </div>
-
+													<?php }?>
+													<?php   if( in_array('embo', $steps)){?>
                                                 <div class="col-md-4">
-														<?php   if( in_array('embo', $steps)){?>
+														
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <div class="md-checkbox">
@@ -781,11 +787,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-													<?php }?>
+													
                                                 </div>
-
+													<?php }?>
+													<?php   if( in_array('sewing', $steps)){?>
                                                 <div class="col-md-4">
-												<?php   if( in_array('sewing', $steps)){?>
+												
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <div class="md-checkbox">
@@ -837,11 +844,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-													<?php }?>
+													
                                                 </div>
-
+												<?php }?>
+												<?php   if( in_array('wash', $steps)){?>
                                                 <div class="col-md-4">
-														<?php   if( in_array('wash', $steps)){?>
+														
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <div class="md-checkbox">
@@ -893,11 +901,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-													<?php }?>
+													
                                                 </div>
-
-                                                <div class="col-md-4">
+													<?php }?>
 													<?php   if( in_array('pack', $steps)){?>
+                                                <div class="col-md-4">
+													
                                                     <div class="panel panel-default">
                                                         <div class="panel-heading">
                                                             <div class="md-checkbox">
