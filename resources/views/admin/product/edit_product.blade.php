@@ -7,7 +7,8 @@
                 <div class="page-content">
                     <!-- BEGIN PAGE HEADER-->
                     <!-- BEGIN PAGE BAR -->
-                    <div class="page-bar">
+                    <div class="page-bar row">
+					<div class="col-md-10">
                         <ul class="page-breadcrumb">
                             <li>
                                 <a href="index.html">Home</a>
@@ -35,6 +36,11 @@
                                 <span>Edit Order</span>
                             </li>
                         </ul>
+						</div>
+						<br>
+						<div class="col-md-2">
+						<a href="{{ url('product/client/view') }}" class="badge badge-primary">View as client</a>
+						</div>
                     </div>
                     <!-- END PAGE BAR -->
                     <!-- BEGIN PAGE TITLE-->
