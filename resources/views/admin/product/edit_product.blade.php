@@ -39,7 +39,10 @@
 						</div>
 						<br>
 						<div class="col-md-2">
-						<a href="{{ url('product/client/view') }}" class="badge badge-primary">View as client</a>
+						<a href="{{url('product/edit/'.$productById->id)}}" class="btn btn-success">
+																	<span class="glyphicon glyphicon-edit"></span>
+																</a>
+						<a href="{{ url('product/client/view/'.$productById->id) }}" class="badge badge-primary">View as client</a>
 						</div>
                     </div>
                     <!-- END PAGE BAR -->

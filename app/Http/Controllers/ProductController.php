@@ -336,13 +336,14 @@ class ProductController extends Controller
        ],200);
 
 	}
-	public function clientAsView(){
-		      $product1=  Product::all();
+	public function clientAsView($id){
+		      $product1=  Product::where('id',$id);
+			 // dd($product1);
 		 $products= DB::table('Products')
 		->join('users', 'Products.user_id','=','users.id')
 		 ->select('users.*', 'Products.*')
             ->get(); 
-			//dd( $products);
+			dd( $products);
 		//return view('product.Show',['products'=>$product]);
 		//return view('product.Show');
 		return view('admin.product.viewasclient',['products'=>$products,'product1'=>$product1]);

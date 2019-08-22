@@ -33,13 +33,14 @@ session_start();
                     <!-- END PAGE TITLE-->
                     <!-- END PAGE HEADER-->
                     <div class="row">
+					  <div class="col-md-2">Tfd</div>
+					    <div class="col-md-2">col-md-2</div>
                         <div class="">
-						 @foreach ($product1 as $product1)
+						 @foreach ($products as $product1)
 						  <div class="col-md-2">{{$product1->style}}</div>
-						  <div class="col-md-2">col-md-2</div>
-						  <div class="col-md-2">col-md-2</div>
+						   <div class="col-md-2">{{$product1->category==0?'boys':'girl'}}</div>
 						</div>
-   @endforeach
+                   @endforeach
                     </div>
                 </div>
                

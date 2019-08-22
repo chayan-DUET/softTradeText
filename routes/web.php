@@ -87,7 +87,7 @@ Route::post('/add-product', 'ProductController@create_product');
 Route::get('product/edit/{id}', 'ProductController@editProduct');
 Route::post('product/update{id}', 'ProductController@updateProduct');
 Route::get('product/delete/{id}', 'ProductController@deleteProduct');
-Route::get('product/client/view', 'ProductController@clientAsView');
+Route::get('product/client/view/{id}', 'ProductController@clientAsView');
 
 //approve-admin hcon manage-admin
 Route::get('/approve-admin', 'HomeController@approve_admin');
