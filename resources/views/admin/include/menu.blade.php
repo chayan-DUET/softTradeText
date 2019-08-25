@@ -161,7 +161,7 @@
 											</div>
 
 											{!! Charts::scripts() !!}
-											{!! $chart->script() !!} -->:
+											{!! $chart->script() !!} -->
                             </div>
                             <!-- END PORTLET-->
                         </div>

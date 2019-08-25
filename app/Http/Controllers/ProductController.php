@@ -342,8 +342,9 @@ class ProductController extends Controller
 		 $products= DB::table('Products')
 		->join('users', 'Products.user_id','=','users.id')
 		 ->select('users.*', 'Products.*')
-            ->get(); 
-			dd( $products);
+            ->where('products.id', $id)
+                ->first();
+			//dd( $products);
 		//return view('product.Show',['products'=>$product]);
 		//return view('product.Show');
 		return view('admin.product.viewasclient',['products'=>$products,'product1'=>$product1]);
