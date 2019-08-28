@@ -340,7 +340,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
-                                    <a href="{{url('/softTrade/profile')}}">
+                                    <a href="{{url('/profile')}}">
                                         <i class="icon-user"></i> My Profile </a>
                                 </li>
 								<!--  

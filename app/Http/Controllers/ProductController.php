@@ -27,9 +27,9 @@ class ProductController extends Controller
 	public function show_product(){
 		//$products=  Product::all();
 		$product1=  Product::all();
-		 $products= DB::table('Products')
-		->join('users', 'Products.user_id','=','users.id')
-		 ->select('users.*', 'Products.*')
+		 $products= DB::table('products')
+		->join('users', 'products.user_id','=','users.id')
+		 ->select('users.*', 'products.*')
             ->get(); 
 		//return view('product.Show',['products'=>$product]);
 		//return view('product.Show');

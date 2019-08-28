@@ -11,8 +11,18 @@ class UserController extends Controller
 		return view('admin.user.add_profile',array('user'=>Auth::user()));
 	}
 	public function update_profile(Request $request){
-		
-		  $image = $request->file('image');
+		$user = Auth::user();
+		if($request->hasfile('image')){
+			$file=$request->file('image');
+			$extension = $file->getClientOriginalExtension();
+			$filename=time().'.'.$extension;
+			$file->move('public/productImage/',$filename);
+			$user->image = $filename;
+			//dd($user);
+			$user->update();
+		}
+		return redirect('/profile');
+/* 		  $image = $request->file('image');
 //        echo '<pre>';
 //        print_r($image);
         $name = $image->getClientOriginalName();
@@ -24,6 +34,7 @@ class UserController extends Controller
 		$user = Auth::user();
 		 $user->image = $imageUrl;
 		 $user->save();
+		 return redirect('admin.user.add_profile', array('user' => Auth::user()) ); */
     	}
     	//return view('admin.user.add_profile', array('user' => Auth::user()) );
     

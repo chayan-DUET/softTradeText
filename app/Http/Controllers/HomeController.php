@@ -42,9 +42,9 @@ class HomeController extends Controller
       //return view('/Adminhome', $users);
 	  //return view('/admin.adminmaster', $users);
 
-	   $products= DB::table('Products')
-		->join('users', 'Products.user_id','=','users.id')
-		 ->select('users.*', 'Products.*')
+	   $products= DB::table('products')
+		->join('users', 'products.user_id','=','users.id')
+		 ->select('users.*', 'products.*')
             ->get(); 
 			 $product = Product::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"), date('Y'))->get();
          $chart = Charts::database($product, 'Area', 'highcharts')

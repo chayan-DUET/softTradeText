@@ -257,7 +257,7 @@
                                                 </div>
                                                 <div class="col-md-12">
 													<div class="table-responsive">
-														<table class="table table-bordered table-hover table-striped">
+														<table class="table table-bordered table-hover table-striped" id="tab">
 															<thead>
 																<tr>
 																	<th scope="col"></th>
@@ -310,19 +310,70 @@
 																<tr>
 																	<th scope="row">Comments</th>
 																	<td>
-																		<input type="text" name ="will_comment" value="{{$productById->will_comment}}" id="" class="form-control">
+																		<input type="text" name ="will_comment" value="{{$productById->will_comment==0?'Done':'Pending'}}" id="" class="form-control">
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="will_comment" name="will_comment">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
 																	</td>
 																	<td>
-																		<input type="text" name ="will_comment_strike" value="{{$productById->will_comment_strike}}" id="" class="form-control">
+																		<input type="text" name ="will_comment_strike" value="{{$productById->will_comment_strike==0?'Done':'Pending'}}" id="" class="form-control">
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="will_comment_strike" name="will_comment_strike">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
+																		
 																	</td>
 																	<td>
-																		<input type="text" name ="will_comment_size" value="{{$productById->will_comment_size}}" id="" class="form-control">
+																		<input type="text" name ="will_comment_size" value="{{$productById->will_comment_size==0?'Done':'Pending'}}" id="" class="form-control">
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="will_comment_size" name="will_comment_size">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
 																	</td>
 																	<td>
-																		<input type="text" name ="will_comment_pp" value="{{$productById->will_comment_pp}}" id="" class="form-control">
+																		<input type="text" name ="will_comment_pp" value="{{$productById->will_comment_pp==0?'Done':'Pending'}}" id="" class="form-control">
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="will_comment_pp" name="will_comment_pp">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
 																	</td>
 																	<td>
-																		<input type="text" name ="will_comment_ps" value="{{$productById->will_comment_ps}}" id="" class="form-control">
+																		<input type="text" name ="will_comment_ps" value="{{$productById->will_comment_ps==0?'Done':'Pending'}}" id="" class="form-control">
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="will_comment_ps" name="will_comment_ps">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
 																	</td>
 																</tr>
 																<tr>
@@ -366,19 +417,19 @@
 																<tr>
 																	<th scope="row">Comments</th>
 																	<td>
-																		<input type="text" name ="revised_comment" value="{{$productById->revised_comment}}" id="" class="form-control">
+																		<input type="text" name ="revised_comment" value="{{$productById->revised_comment==0?'Done':'Pending'}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="revised_comment_strike" value="{{$productById->revised_comment_strike}}" id="" class="form-control">
+																		<input type="text" name ="revised_comment_strike" value="{{$productById->revised_comment_strike==0?'Done':'Pending'}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="revised_comment_size" value="{{$productById->revised_comment_size}}" id="" class="form-control">
+																		<input type="text" name ="revised_comment_size" value="{{$productById->revised_comment_size==0?'Done':'Pending'}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="revised_comment_pp" value="{{$productById->revised_comment_pp}}" id="" class="form-control">
+																		<input type="text" name ="revised_comment_pp" value="{{$productById->revised_comment_pp==0?'Done':'Pending'}}" id="" class="form-control">
 																	</td>
 																	<td>
-																		<input type="text" name ="revised_comment_ps" value="{{$productById->revised_comment_ps}}" id="" class="form-control">
+																		<input type="text" name ="revised_comment_ps" value="{{$productById->revised_comment_ps==0?'Done':'Pending'}}" id="" class="form-control">
 																	</td>
 																</tr>
 															</tbody>
@@ -988,5 +1039,6 @@
 			document.forms['editOrder'].elements['category'].value={{$productById->category}}
 			document.forms['editOrder'].elements['company_name'].value={{$productById->user_id}}
 			document.forms['editOrder'].elements['running_steps'].value={{$productById->running_steps}}
+			document.forms['editOrder'].table['tab'].elements['will_comment'].value={{$productById->will_comment}}
 			</script>
 			@endsection

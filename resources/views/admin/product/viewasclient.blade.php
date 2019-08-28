@@ -132,19 +132,19 @@ session_start();
 																<tr>
 																	<th scope="row">Comments</th>
 																	<td>
-																		<input type="text" name ="will_comment" value="{{$products->will_comment}}" id="" class="form-control" readonly>
+																		<input type="text" name ="will_comment" value="{{$products->will_comment==0?'Done':'Pending'}}" id="" class="form-control" readonly>
 																	</td>
 																	<td>
-																		<input type="text" name ="will_comment_strike" value="{{$products->will_comment_strike}}" id="" class="form-control" readonly>
+																		<input type="text" name ="will_comment_strike" value="{{$products->will_comment_strike==0?'Done':'Pending'}}" id="" class="form-control" readonly>
 																	</td>
 																	<td>
-																		<input type="text" name ="will_comment_size" value="{{$products->will_comment_size}}" id="" class="form-control" readonly>
+																		<input type="text" name ="will_comment_size" value="{{$products->will_comment_size==0?'Done':'Pending'}}" id="" class="form-control" readonly>
 																	</td>
 																	<td>
-																		<input type="text" name ="will_comment_pp" value="{{$products->will_comment_pp}}" id="" class="form-control" readonly>
+																		<input type="text" name ="will_comment_pp" value="{{$products->will_comment_pp==0?'Done':'Pending'}}" id="" class="form-control" readonly>
 																	</td>
 																	<td>
-																		<input type="text" name ="will_comment_ps" value="{{$products->will_comment_ps}}" id="" class="form-control" readonly>
+																		<input type="text" name ="will_comment_ps" value="{{$products->will_comment_ps==0?'Done':'Pending'}}" id="" class="form-control" readonly>
 																	</td>
 																</tr>
 																<tr>
@@ -188,19 +188,19 @@ session_start();
 																<tr>
 																	<th scope="row">Comments</th>
 																	<td>
-																		<input type="text" name ="revised_comment" value="{{$products->revised_comment}}" id="" class="form-control" readonly>
+																		<input type="text" name ="revised_comment" value="{{$products->revised_comment==0?'Done':'Pending'}}" id="" class="form-control" readonly>
 																	</td>
 																	<td>
-																		<input type="text" name ="revised_comment_strike" value="{{$products->revised_comment_strike}}" id="" class="form-control" readonly>
+																		<input type="text" name ="revised_comment_strike" value="{{$products->revised_comment_strike==0?'Done':'Pending'}}" id="" class="form-control" readonly>
 																	</td>
 																	<td>
-																		<input type="text" name ="revised_comment_size" value="{{$products->revised_comment_size}}" id="" class="form-control" readonly>
+																		<input type="text" name ="revised_comment_size" value="{{$products->revised_comment_size==0?'Done':'Pending'}}" id="" class="form-control" readonly>
 																	</td>
 																	<td>
-																		<input type="text" name ="revised_comment_pp" value="{{$products->revised_comment_pp}}" id="" class="form-control" readonly>
+																		<input type="text" name ="revised_comment_pp" value="{{$products->revised_comment_pp==0?'Done':'Pending'}}" id="" class="form-control" readonly>
 																	</td>
 																	<td>
-																		<input type="text" name ="revised_comment_ps" value="{{$products->revised_comment_ps}}" id="" class="form-control" readonly>
+																		<input type="text" name ="revised_comment_ps" value="{{$products->revised_comment_ps==0?'Done':'Pending'}}" id="" class="form-control" readonly>
 																	</td>
 																</tr>
 															</tbody>

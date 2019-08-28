@@ -108,7 +108,7 @@ Route::post('product/update', 'ProductController@updateProduct');
 Route::get('product/delete/{id}', 'ProductController@deleteProduct');
 
 //user controller /profile
-Route::get('/softTrade/profile', 'UserController@profile');
-Route::post('/softTrade/profile', 'UserController@update_profile');
+Route::get('/profile', 'UserController@profile');
+Route::post('/profile', 'UserController@update_profile');
 
 });

@@ -325,19 +325,69 @@
 																<tr>
 																	<th scope="row">Comments</th>
 																	<td>
-																		<input type="text" name ="will_comment" id="" class="form-control">
+																		<!--<input type="text" name ="will_comment" id="" class="form-control"> -->
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="will_comment" name="will_comment">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
 																	</td>
 																	<td>
-																		<input type="text" name ="will_comment_strike" id="" class="form-control">
+																	<!--	<input type="text" name ="will_comment_strike" id="" class="form-control"> -->
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="will_comment_strike" name="will_comment_strike">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
 																	</td>
 																	<td>
-																		<input type="text" name ="will_comment_size" id="" class="form-control">
+																	<!--	<input type="text" name ="will_comment_size" id="" class="form-control"> -->
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="will_comment_size" name="will_comment_size">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
 																	</td>
 																	<td>
-																		<input type="text" name ="will_comment_pp" id="" class="form-control">
+																		<!--<input type="text" name ="will_comment_pp" id="" class="form-control"> -->
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="will_comment_pp" name="will_comment_pp">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
 																	</td>
 																	<td>
-																		<input type="text" name ="will_comment_ps" id="" class="form-control">
+																	<!--	<input type="text" name ="will_comment_ps" id="" class="form-control"> -->
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="will_comment_ps" name="will_comment_ps">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
 																	</td>
 																</tr>
 																<tr>
@@ -381,19 +431,69 @@
 																<tr>
 																	<th scope="row">Comments</th>
 																	<td>
-																		<input type="text" name ="revised_comment" id="" class="form-control">
+																	<!--	<input type="text" name ="revised_comment" id="" class="form-control"> -->
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="revised_comment" name="revised_comment">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
 																	</td>
 																	<td>
-																		<input type="text" name ="revised_comment_strike" id="" class="form-control">
+																		<!--<input type="text" name ="revised_comment_strike" id="" class="form-control"> -->
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="revised_comment_strike" name="revised_comment_strike">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
 																	</td>
 																	<td>
-																		<input type="text" name ="revised_comment_size" id="" class="form-control">
+																	<!--	<input type="text" name ="revised_comment_size" id="" class="form-control"> -->
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="revised_comment_size" name="revised_comment_size">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
 																	</td>
 																	<td>
-																		<input type="text" name ="revised_comment_pp" id="" class="form-control">
+																		<!--<input type="text" name ="revised_comment_pp" id="" class="form-control"> -->
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="revised_comment_pp" name="revised_comment_pp">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
 																	</td>
 																	<td>
-																		<input type="text" name ="revised_comment_ps" id="" class="form-control">
+																	<!--	<input type="text" name ="revised_comment_ps" id="" class="form-control"> -->
+																		 <div class="">
+																		<div class="">
+																			<select required class="form-control edited" id="revised_comment_ps" name="revised_comment_ps">
+																				<option value="" selected>Approval Status</option>
+																				<option value="0">Done</option>
+																				<option value="1">Panding</option>
+																				<option value="2">Running</option>
+																			</select>
+																		</div>
+																	</div>
 																	</td>
 																</tr>
 															</tbody>
