@@ -20,7 +20,7 @@ class ProductController extends Controller
 {
     public function add_product(){
 		$users = Auth::User()->where('status', 1)->get();
-		return view('admin.product.add_Product',['users'=>$users]);
+		return view('admin.product.add_product',['users'=>$users]);
 		//return view('product.Product'); add_product
 	}
 	
@@ -141,6 +141,7 @@ class ProductController extends Controller
 	public function editProduct($id){
 		 $users = Auth::User()->where('status', 1)->get();
 		 $productById= Product::where('id',$id)->first();
+		 //dd($productById);
 		Session::put('productById',$productById->quantity);
 		Session::put('productBydd',$productById->bday_dd);
 		//dd(session()->get('productById'));

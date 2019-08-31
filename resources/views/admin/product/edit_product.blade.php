@@ -257,7 +257,7 @@
                                                 </div>
                                                 <div class="col-md-12">
 													<div class="table-responsive">
-														<table class="table table-bordered table-hover table-striped" id="tab">
+														<table class="table table-bordered table-hover table-striped">
 															<thead>
 																<tr>
 																	<th scope="col"></th>
@@ -1039,6 +1039,6 @@
 			document.forms['editOrder'].elements['category'].value={{$productById->category}}
 			document.forms['editOrder'].elements['company_name'].value={{$productById->user_id}}
 			document.forms['editOrder'].elements['running_steps'].value={{$productById->running_steps}}
-			document.forms['editOrder'].table['tab'].elements['will_comment'].value={{$productById->will_comment}}
+			document.forms['editOrder'].elements['will_comment'].value={{$productById->will_comment}}
 			</script>
 			@endsection
