@@ -39,7 +39,7 @@
 				<li><a class=" glyphicon glyphicon-lock" style="float: right;margin:auto;top:-78px;right:-84px;    color: #fda30e; " href="{{URL::to('/customer-logout')}}">Logout</a></li>
 				
 					<!--end menu -->
-                     <!--   <li class="nav-item">
+                        <li class="nav-item">
                             <a href="/softTrade" class="nav-link nav-toggle">
                                 <i class="icon-puzzle"></i>
                                 <span class="title">Order</span>
@@ -64,7 +64,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li> -->
+                        </li>
 
                         <li class="nav-item">
                             <a href="/softTrade" class="nav-link nav-toggle">
@@ -90,12 +90,11 @@
                                         <span class="selected"></span>
                                         <span class="arrow"></span>
                                     </a>
-                           
+
                                     <ul class="sub-menu">
-									@foreach($products as $products)
                                         <li class="nav-item">
                                             <a href="javascript:;" class="nav-link nav-toggle">
-                                                <span class="title">{{$products->comp_sname}}</span>
+                                                <span class="title">LB</span>
                                                 <span class="selected"></span>
                                                 <span class="arrow"></span>
                                             </a>
@@ -103,22 +102,20 @@
                                             <ul class="sub-menu">
                                                 <li class="nav-item">
                                                     <a href="javascript:;" class="nav-link nav-toggle">
-                                                        <span class="title">{{$products->season}}</span>
+                                                        <span class="title">SS-2020</span>
                                                         <span class="selected"></span>
                                                         <span class="arrow"></span>
                                                     </a>   
 
                                                     <ul class="sub-menu">
-                                                        <li class="nav-item"><a href="{{url('/show-product')}}" class="nav-link">{{$products->category==0?'boys':'girl'}}</a></li>
-                                                        <li class="nav-item"><a href="{{url('/show-product')}}" class="nav-link">{{$products->category==0?'boys':'girl'}}</a></li>
-                                                        <li class="nav-item"><a href="{{url('/show-product')}}" class="nav-link">{{$products->category==0?'boys':'girl'}}</a></li>
+                                                        <li class="nav-item"><a href="#" class="nav-link">Boys</a></li>
+                                                        <li class="nav-item"><a href="#" class="nav-link">Girls</a></li>
+                                                        <li class="nav-item"><a href="#" class="nav-link">Kids</a></li>
                                                     </ul> 
                                                 </li>
                                             </ul>
                                         </li>
-										@endforeach
                                     </ul>
-									
                                 </li>
                             </ul>
                         </li>
@@ -210,7 +207,48 @@
 				
 				
 				
-				
+				  <li class="nav-item">
+                            <a href="/softTrade" class="nav-link nav-toggle">
+                                <i class="icon-puzzle"></i>
+                                <span class="title">Order</span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+					
+						
+                            <ul class="sub-menu">
+							
+                                <li class="nav-item start active open">
+                                    <a href="{{url('/show-product')}}" class="nav-link ">
+                                        <i class="icon-bar-chart"></i>
+										@foreach($products as $products)
+                                        <span class="title">Order List <br>{{$products->factory_name}} </span>
+										
+									<ul><li class="nav-item start active open">{{$products->category==0?'boys':'girl'}}</li>
+									<li class="nav-item start active open">	{{$products->season}}</li>
+									<li class="nav-item start active open">	{{$products->comp_sname}}</li>
+									<li class="nav-item start active open">	{{$products->company_name}}
+									
+									</li>
+									</ul>
+									 @endforeach
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+							    
+									@foreach($publishproducts as $publishproducts)
+                                <li class="nav-item start ">
+                                    <a href="{{url('/show-product')}}" class="nav-link ">
+                                        <i class="icon-bulb"></i>
+                                        <span class="title">Order List {{$publishproducts->company_name}} </span>
+                                        <span class="badge badge-success">1</span>
+                                    </a>
+                                </li>
+									@endforeach
+                            </ul>
+							
+							
+                        </li>
 			
 			<?php
 $number = rand(100,100000);

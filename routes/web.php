@@ -111,4 +111,9 @@ Route::get('product/delete/{id}', 'ProductController@deleteProduct');
 Route::get('/profile', 'UserController@profile');
 Route::post('/profile', 'UserController@update_profile');
 
+//mailController
+//Route::get('/sendemail/mail','MailController@sendgMail');
+
+//Route::post('/sendemail/send', 'MailController@send');
+
 });

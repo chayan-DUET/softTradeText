@@ -133,6 +133,9 @@ session_start();
                                                     <a href="#" class="btn btn-danger">
                                                         <i class="fa fa-archive"></i>   
                                                     </a>
+													<a href="#" onclick="return confirm('are u sure delete this item')" class="btn btn-success">
+																	<span class="	glyphicon glyphicon-eye-open"></span>
+																</a>
                                                 </td> 
                                             </tr>  
                                             <tr>  
@@ -161,6 +164,9 @@ session_start();
                                                     <a href="#" class="btn btn-danger">
                                                         <i class="fa fa-archive"></i>   
                                                     </a>
+													<a href="#" onclick="return confirm('are u sure delete this item')" class="btn btn-success">
+																	<span class="	glyphicon glyphicon-eye-open"></span>
+																</a>
                                                 </td> 
                                             </tr>  
 											 <?php $number = 0; ?>
@@ -201,7 +207,7 @@ session_start();
 												 <td>{{$product->fabric}}</td>
 												 <td>{{$product->color}}</td>
 												   <td>{{$product->quantity}}</td>
-												  <td><img src="{{asset('public/productImage/'.$product->image)}}" style="height:40px;width:40px;"></td>
+												  <td><img src="{{asset('/productImage/'.$product->image)}}" style="height:40px;width:40px;"></td>
 												  
 												  <td>{{$product->description}}<br><a data-toggle="modal" data-target="#Description<?php echo $product->id; ?>"   href="#Description">Details</a></td>
 												  <td>{{$product->steps}}<br> <small><a data-toggle="modal" data-target="#Steps<?php echo $product->id ?>" href="#Steps">Step Details</a></small></td>
@@ -237,6 +243,9 @@ session_start();
 																</a>
 															<a href="{{url('product/delete/'.$product->id)}}" onclick="return confirm('are u sure delete this item')" class="btn btn-danger">
 																	<span class="glyphicon glyphicon-trash"></span>
+																</a>
+																<a href="{{url('product/client/view/'.$product->id)}}" class="btn btn-success">
+																	<span class="	glyphicon glyphicon-eye-open"></span>
 																</a>
 
 															</td>
@@ -376,12 +385,15 @@ session_start();
                                                     
                                                     <td>
                                                         <span class="dtr-data">
-                                                            <a href="#" class="btn btn-success">
-                                                                <span class="glyphicon glyphicon-edit"></span>
-                                                            </a>
-                                                            <a href="#" class="btn btn-danger">
-                                                                <span class="glyphicon glyphicon-trash"></span>
-                                                            </a>
+                                                           <a href="{{url('product/edit/'.$product->id)}}" class="btn btn-success">
+																	<span class="glyphicon glyphicon-edit"></span>
+																</a>
+															<a href="{{url('product/delete/'.$product->id)}}" onclick="return confirm('are u sure delete this item')" class="btn btn-danger">
+																	<span class="glyphicon glyphicon-trash"></span>
+																</a>
+																<a href="{{url('product/client/view/'.$product->id)}}" class="btn btn-success">
+																	<span class="	glyphicon glyphicon-eye-open"></span>
+																</a>
                                                         </span>
                                                     </td>
                                                 </tr>

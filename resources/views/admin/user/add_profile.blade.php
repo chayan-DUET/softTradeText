@@ -54,7 +54,7 @@
                                             <div class="row">
                                                 <div class="col-md-8">
                                                     <div class="row">
-                                                      <img src="{{asset('public/productImage/'.$user->image)}}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+                                                      <img src="{{asset('/productImage/'.$user->image)}}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -64,7 +64,7 @@
                                                             <div class="col-md-5">
                                                                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"> 
                                                                    
-																   <img src="{{asset('public/productImage/'.$user->image)}}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;"/> 
+																   <img src="{{asset('/productImage/'.$user->image)}}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;"/> 
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-7 text-left">
