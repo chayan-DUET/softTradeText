@@ -347,7 +347,16 @@ session_start();
                                             </thead>
                                             <tbody>
 											 @foreach($products as $product)
-                                                <tr>
+                                                <tr
+												    @if($days <=7 && $days >=1)  style="background-color: #ffd0d0;";
+												} @elseif($days <=15 && $days >=8)   style="background-color: #e4f8ff"; 
+												  @elseif($days <=30 && $days >=16)  style="background-color: #e2ffef;"; 
+								
+												   @else  style="background-color: #fff;";
+												   @endif
+												     
+												
+												>
                                                     <td>
                                                         <div class="form-check">
                                                             <input style="" class="form-check-input"
@@ -355,7 +364,7 @@ session_start();
                                                         </div>
                                                     </td>
                                                     <td scope="row">01</td>
-                                                    <td><img src="https://softtradebd.com/oms/softTrade/public/productImage/1563897406.JPG"
+                                                    <td><img src="{{asset('public/productImage/'.$product->image)}}"
                                                         style="height:30px;width:30px;"></td>
                                                         <td>{{$product->company_no}}</td>
                                                     <td>{{$product->company_name}}</td>
