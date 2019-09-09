@@ -41,11 +41,17 @@ class ProductController extends Controller
 			if ($products->count() == 1) {
        return view('admin.product.product_list',['products'=>$products,'product1'=>$product1]);
     } else { 
+	$product1=  Product::all();
+		 $products= DB::table('products')
+		->join('users', 'products.user_id','=','users.id')
+		->where('category',0)
+		 ->select('users.*', 'products.*')
+            ->get(); 
        return view('admin.product.product_list',['products'=>$products,'product1'=>$product1]);
     } 
 		//return view('product.Show',['products'=>$product]);
 		//return view('product.Show');
-		return view('admin.product.product_list',['products'=>$products,'product1'=>$product1]);
+		//return view('admin.product.product_list',['products'=>$products,'product1'=>$product1]);
 	}
 	
 	public function create_product(Request $request){
