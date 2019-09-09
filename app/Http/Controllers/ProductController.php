@@ -25,12 +25,24 @@ class ProductController extends Controller
 	}
 	
 	public function show_product(){
+			 	 Session::put('category',Product::get());
+				 
+				 
+    if (Auth::user()->admin == 0) {
+      return view('/home');
+    }
 		//$products=  Product::all();
 		$product1=  Product::all();
 		 $products= DB::table('products')
 		->join('users', 'products.user_id','=','users.id')
+		->where('category',1)
 		 ->select('users.*', 'products.*')
             ->get(); 
+			if ($products->count() == 1) {
+       return view('admin.product.product_list',['products'=>$products,'product1'=>$product1]);
+    } else { 
+       return view('admin.product.product_list',['products'=>$products,'product1'=>$product1]);
+    } 
 		//return view('product.Show',['products'=>$product]);
 		//return view('product.Show');
 		return view('admin.product.product_list',['products'=>$products,'product1'=>$product1]);

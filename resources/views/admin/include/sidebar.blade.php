@@ -22,19 +22,26 @@
                         </li>
 
                         <li class="nav-item start active">
-                            <a href="/softTrade" class="nav-link">
+                            <a href="/softTrade/public" class="nav-link">
                                 <i class="icon-home"></i>
                                 <span class="title">Dashboard</span>
                             </a>
                         </li>
                     <!--  menu  -->
 											<?php 
-			     $shipping_id=Session::get('user_id');
+							$shipping_id=Session::get('user_id');
+			     $shipping=Session::get('category');
 				 
-				 //print_r($shipping_id);
+				 //$test2 = intVal($shipping); 
+				 //print_r($test2);
 				 
 				 ?>	
-				 
+				 @foreach($shipping as $shipping)
+				 <?Php
+				 $test2 = ($shipping);
+				 //echo $test2;
+				 ?>
+				 @endforeach
 						<?php if($shipping_id==1){?>
 				<li><a class=" glyphicon glyphicon-lock" style="float: right;margin:auto;top:-78px;right:-84px;    color: #fda30e; " href="{{URL::to('/customer-logout')}}">Logout</a></li>
 				
@@ -107,11 +114,13 @@
                                                         <span class="selected"></span>
                                                         <span class="arrow"></span>
                                                     </a>   
-
+														
                                                     <ul class="sub-menu">
+													@if($products->category=='0')	
                                                         <li class="nav-item"><a href="{{url('/show-product')}}" class="nav-link">{{$products->category==0?'boys':'girl'}}</a></li>
-                                                        <li class="nav-item"><a href="{{url('/show-product')}}" class="nav-link">{{$products->category==0?'boys':'girl'}}</a></li>
-                                                        <li class="nav-item"><a href="{{url('/show-product')}}" class="nav-link">{{$products->category==0?'boys':'girl'}}</a></li>
+                                                      @else
+														  <li class="nav-item"><a href="{{url('/show-product')}}" class="nav-link">{{$products->category==0?'boys':'girl'}}</a></li>
+													  @endif
                                                     </ul> 
                                                 </li>
                                             </ul>
